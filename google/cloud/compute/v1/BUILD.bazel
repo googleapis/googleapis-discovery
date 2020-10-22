@@ -156,19 +156,12 @@ load(
     "@com_google_googleapis_imports//:imports.bzl",
     "php_gapic_assembly_pkg",
     "php_gapic_library",
-    "php_grpc_library",
     "php_proto_library",
 )
 
 php_proto_library(
     name = "compute_php_proto",
     deps = [":compute_proto"],
-)
-
-php_grpc_library(
-    name = "compute_php_grpc",
-    srcs = [":compute_proto"],
-    deps = [":compute_php_proto"],
 )
 
 php_gapic_library(
@@ -178,7 +171,6 @@ php_gapic_library(
     package = "google.cloud.compute.v1",
     service_yaml = "compute_v1.yaml",
     deps = [
-        ":compute_php_grpc",
         ":compute_php_proto",
     ],
 )
@@ -188,7 +180,6 @@ php_gapic_assembly_pkg(
     name = "google-cloud-compute-v1-php",
     deps = [
         ":compute_php_gapic",
-        ":compute_php_grpc",
         ":compute_php_proto",
     ],
 )
