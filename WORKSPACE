@@ -11,23 +11,6 @@ http_archive(
 ##############################################################################
 # Common
 ##############################################################################
-http_archive(
-    name = "com_google_disco_to_proto3_converter",
-    urls = ["https://github.com/googleapis/disco-to-proto3-converter/archive/b2fffa8a43bbe84eeb65541f3fde30c859f00f0e.zip"],
-    strip_prefix = "disco-to-proto3-converter-b2fffa8a43bbe84eeb65541f3fde30c859f00f0e"
-)
-
-load("@com_google_disco_to_proto3_converter//:repository_rules.bzl", "com_google_disco_to_proto3_converter_properties")
-
-com_google_disco_to_proto3_converter_properties(
-    name = "com_google_disco_to_proto3_converter_properties",
-    file = "@com_google_disco_to_proto3_converter//:pom.xml",
-)
-
-load("@com_google_disco_to_proto3_converter//:repositories.bzl", "com_google_disco_to_proto3_converter_repositories")
-
-com_google_disco_to_proto3_converter_repositories()
-
 load("@com_google_googleapis//:repository_rules.bzl", "switched_rules_by_language")
 
 switched_rules_by_language(
@@ -82,40 +65,22 @@ http_archive(
     urls = ["https://github.com/googleapis/gapic-generator/archive/v2.7.0.zip"],
 )
 
-##############################################################################
-# C++
-##############################################################################
-# C++ must go before everything else, since the key dependencies (protobuf and gRPC)
-# are C++ repositories and they have the highest chance to have the correct versions of the
-# transitive dependencies (for those dependencies which are shared by many other repositories
-# imported in this workspace).
-#
-# Note, even though protobuf and gRPC are mostly written in C++, they are used to generate stuff
-# for most of the other languages as well, so they can be considered as the core cross-language
-# dependencies.
-
 http_archive(
-    name = "com_github_grpc_grpc",
-    sha256 = "0f330e4734f49d2bfdb9ad195b021720b5dd2e2a534cdf21c7ddc7f7eb42e170",
-    strip_prefix = "grpc-1.33.1",
-    urls = ["https://github.com/grpc/grpc/archive/v1.33.1.zip"],
+    name = "com_google_disco_to_proto3_converter",
+    urls = ["https://github.com/googleapis/disco-to-proto3-converter/archive/b2fffa8a43bbe84eeb65541f3fde30c859f00f0e.zip"],
+    strip_prefix = "disco-to-proto3-converter-b2fffa8a43bbe84eeb65541f3fde30c859f00f0e"
 )
 
-load("@com_github_grpc_grpc//bazel:grpc_deps.bzl", "grpc_deps")
+load("@com_google_disco_to_proto3_converter//:repository_rules.bzl", "com_google_disco_to_proto3_converter_properties")
 
-grpc_deps()
+com_google_disco_to_proto3_converter_properties(
+    name = "com_google_disco_to_proto3_converter_properties",
+    file = "@com_google_disco_to_proto3_converter//:pom.xml",
+)
 
-load("@com_github_grpc_grpc//bazel:grpc_extra_deps.bzl", "grpc_extra_deps")
+load("@com_google_disco_to_proto3_converter//:repositories.bzl", "com_google_disco_to_proto3_converter_repositories")
 
-grpc_extra_deps()
-
-load("@build_bazel_rules_apple//apple:repositories.bzl", "apple_rules_dependencies")
-
-apple_rules_dependencies()
-
-load("@build_bazel_apple_support//lib:repositories.bzl", "apple_support_dependencies")
-
-apple_support_dependencies()
+com_google_disco_to_proto3_converter_repositories()
 
 ##############################################################################
 # Java
@@ -139,10 +104,6 @@ com_google_api_gax_java_properties(
 load("@com_google_api_gax_java//:repositories.bzl", "com_google_api_gax_java_repositories")
 
 com_google_api_gax_java_repositories()
-
-load("@io_grpc_grpc_java//:repositories.bzl", "grpc_java_repositories")
-
-grpc_java_repositories()
 
 # gapic-generator transitive
 # (goes AFTER java-gax, since both java gax and gapic-generator are written in java and may conflict)
