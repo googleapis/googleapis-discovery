@@ -78,8 +78,8 @@ rules_proto_toolchains()
 # section
 http_archive(
     name = "com_google_api_codegen",
-    strip_prefix = "gapic-generator-7ef6c071ec7486d603d20b6b6482432e8ec83259",
-    urls = ["https://github.com/vam-google/gapic-generator/archive/7ef6c071ec7486d603d20b6b6482432e8ec83259.zip"],
+    strip_prefix = "gapic-generator-2.7.0",
+    urls = ["https://github.com/googleapis/gapic-generator/archive/v2.7.0.zip"],
 )
 
 ##############################################################################
@@ -96,8 +96,9 @@ http_archive(
 
 http_archive(
     name = "com_github_grpc_grpc",
-    strip_prefix = "grpc-1.30.2",
-    urls = ["https://github.com/grpc/grpc/archive/v1.30.2.zip"],
+    sha256 = "0f330e4734f49d2bfdb9ad195b021720b5dd2e2a534cdf21c7ddc7f7eb42e170",
+    strip_prefix = "grpc-1.33.1",
+    urls = ["https://github.com/grpc/grpc/archive/v1.33.1.zip"],
 )
 
 load("@com_github_grpc_grpc//bazel:grpc_deps.bzl", "grpc_deps")
@@ -107,12 +108,6 @@ grpc_deps()
 load("@com_github_grpc_grpc//bazel:grpc_extra_deps.bzl", "grpc_extra_deps")
 
 grpc_extra_deps()
-
-load("@upb//bazel:repository_defs.bzl", "bazel_version_repository")
-
-bazel_version_repository(
-    name = "bazel_version",
-)
 
 load("@build_bazel_rules_apple//apple:repositories.bzl", "apple_rules_dependencies")
 
