@@ -11,6 +11,22 @@ http_archive(
 ##############################################################################
 # Common
 ##############################################################################
+http_archive(
+    name = "com_google_disco_to_proto3_converter",
+    urls = ["https://github.com/googleapis/disco-to-proto3-converter/archive/b2fffa8a43bbe84eeb65541f3fde30c859f00f0e.zip"],
+    strip_prefix = "disco-to-proto3-converter-b2fffa8a43bbe84eeb65541f3fde30c859f00f0e"
+)
+
+load("@com_google_disco_to_proto3_converter//:repository_rules.bzl", "com_google_disco_to_proto3_converter_properties")
+
+com_google_disco_to_proto3_converter_properties(
+    name = "com_google_disco_to_proto3_converter_properties",
+    file = "@com_google_disco_to_proto3_converter//:pom.xml",
+)
+
+load("@com_google_disco_to_proto3_converter//:repositories.bzl", "com_google_disco_to_proto3_converter_repositories")
+
+com_google_disco_to_proto3_converter_repositories()
 
 load("@com_google_googleapis//:repository_rules.bzl", "switched_rules_by_language")
 
@@ -34,8 +50,8 @@ http_archive(
 http_archive(
     name = "com_google_protobuf",
     sha256 = "1c744a6a1f2c901e68c5521bc275e22bdc66256eeb605c2781923365b7087e5f",
-    urls = ["https://github.com/protocolbuffers/protobuf/archive/v3.13.0.zip"],
     strip_prefix = "protobuf-3.13.0",
+    urls = ["https://github.com/protocolbuffers/protobuf/archive/v3.13.0.zip"],
 )
 
 load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
@@ -62,8 +78,8 @@ rules_proto_toolchains()
 # section
 http_archive(
     name = "com_google_api_codegen",
-    strip_prefix = "gapic-generator-7b32072e58757249cadfb4bf06c801a49ecb8a33",
-    urls = ["https://github.com/vam-google/gapic-generator/archive/7b32072e58757249cadfb4bf06c801a49ecb8a33.zip"],
+    strip_prefix = "gapic-generator-7ef6c071ec7486d603d20b6b6482432e8ec83259",
+    urls = ["https://github.com/vam-google/gapic-generator/archive/7ef6c071ec7486d603d20b6b6482432e8ec83259.zip"],
 )
 
 ##############################################################################
@@ -80,8 +96,8 @@ http_archive(
 
 http_archive(
     name = "com_github_grpc_grpc",
-    strip_prefix = "grpc-1.30.0",
-    urls = ["https://github.com/grpc/grpc/archive/v1.30.0.zip"],
+    strip_prefix = "grpc-1.30.2",
+    urls = ["https://github.com/grpc/grpc/archive/v1.30.2.zip"],
 )
 
 load("@com_github_grpc_grpc//bazel:grpc_deps.bzl", "grpc_deps")
@@ -110,10 +126,12 @@ apple_support_dependencies()
 # Java
 ##############################################################################
 
+_gax_java_version = "1.60.0"
+
 http_archive(
     name = "com_google_api_gax_java",
-    strip_prefix = "gax-java-d6c282999209553a4e7933173a1dc1f2ae868532",
-    urls = ["https://github.com/vam-google/gax-java/archive/d6c282999209553a4e7933173a1dc1f2ae868532.zip"],
+    strip_prefix = "gax-java-%s" % _gax_java_version,
+    urls = ["https://github.com/googleapis/gax-java/archive/v%s.zip" % _gax_java_version],
 )
 
 load("@com_google_api_gax_java//:repository_rules.bzl", "com_google_api_gax_java_properties")
