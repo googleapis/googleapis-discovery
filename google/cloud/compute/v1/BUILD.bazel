@@ -52,7 +52,7 @@ java_gapic_library(
     gapic_yaml = "compute_gapic.yaml",
     package = "google.cloud.compute.v1",
     service_yaml = "compute_v1.yaml",
-    transport_protocol = "http",
+    transport = "rest",
     test_deps = [],
     deps = [
         ":compute_java_proto",
@@ -141,7 +141,7 @@ java_gapic_test(
 # Open Source Packages
 java_gapic_assembly_gradle_pkg(
     name = "google-cloud-compute-v1-java",
-    transport_protocol = "http",
+    transport = "rest",
     deps = [
         ":compute_java_gapic",
         ":compute_java_proto",

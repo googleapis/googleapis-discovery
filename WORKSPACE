@@ -11,7 +11,6 @@ http_archive(
 ##############################################################################
 # Common
 ##############################################################################
-
 load("@com_google_googleapis//:repository_rules.bzl", "switched_rules_by_language")
 
 switched_rules_by_language(
@@ -34,8 +33,8 @@ http_archive(
 http_archive(
     name = "com_google_protobuf",
     sha256 = "1c744a6a1f2c901e68c5521bc275e22bdc66256eeb605c2781923365b7087e5f",
-    urls = ["https://github.com/protocolbuffers/protobuf/archive/v3.13.0.zip"],
     strip_prefix = "protobuf-3.13.0",
+    urls = ["https://github.com/protocolbuffers/protobuf/archive/v3.13.0.zip"],
 )
 
 load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
@@ -62,58 +61,37 @@ rules_proto_toolchains()
 # section
 http_archive(
     name = "com_google_api_codegen",
-    strip_prefix = "gapic-generator-7b32072e58757249cadfb4bf06c801a49ecb8a33",
-    urls = ["https://github.com/vam-google/gapic-generator/archive/7b32072e58757249cadfb4bf06c801a49ecb8a33.zip"],
+    strip_prefix = "gapic-generator-2.7.0",
+    urls = ["https://github.com/googleapis/gapic-generator/archive/v2.7.0.zip"],
 )
-
-##############################################################################
-# C++
-##############################################################################
-# C++ must go before everything else, since the key dependencies (protobuf and gRPC)
-# are C++ repositories and they have the highest chance to have the correct versions of the
-# transitive dependencies (for those dependencies which are shared by many other repositories
-# imported in this workspace).
-#
-# Note, even though protobuf and gRPC are mostly written in C++, they are used to generate stuff
-# for most of the other languages as well, so they can be considered as the core cross-language
-# dependencies.
 
 http_archive(
-    name = "com_github_grpc_grpc",
-    strip_prefix = "grpc-1.30.0",
-    urls = ["https://github.com/grpc/grpc/archive/v1.30.0.zip"],
+    name = "com_google_disco_to_proto3_converter",
+    urls = ["https://github.com/googleapis/disco-to-proto3-converter/archive/b2fffa8a43bbe84eeb65541f3fde30c859f00f0e.zip"],
+    strip_prefix = "disco-to-proto3-converter-b2fffa8a43bbe84eeb65541f3fde30c859f00f0e"
 )
 
-load("@com_github_grpc_grpc//bazel:grpc_deps.bzl", "grpc_deps")
+load("@com_google_disco_to_proto3_converter//:repository_rules.bzl", "com_google_disco_to_proto3_converter_properties")
 
-grpc_deps()
-
-load("@com_github_grpc_grpc//bazel:grpc_extra_deps.bzl", "grpc_extra_deps")
-
-grpc_extra_deps()
-
-load("@upb//bazel:repository_defs.bzl", "bazel_version_repository")
-
-bazel_version_repository(
-    name = "bazel_version",
+com_google_disco_to_proto3_converter_properties(
+    name = "com_google_disco_to_proto3_converter_properties",
+    file = "@com_google_disco_to_proto3_converter//:pom.xml",
 )
 
-load("@build_bazel_rules_apple//apple:repositories.bzl", "apple_rules_dependencies")
+load("@com_google_disco_to_proto3_converter//:repositories.bzl", "com_google_disco_to_proto3_converter_repositories")
 
-apple_rules_dependencies()
-
-load("@build_bazel_apple_support//lib:repositories.bzl", "apple_support_dependencies")
-
-apple_support_dependencies()
+com_google_disco_to_proto3_converter_repositories()
 
 ##############################################################################
 # Java
 ##############################################################################
 
+_gax_java_version = "1.60.0"
+
 http_archive(
     name = "com_google_api_gax_java",
-    strip_prefix = "gax-java-d6c282999209553a4e7933173a1dc1f2ae868532",
-    urls = ["https://github.com/vam-google/gax-java/archive/d6c282999209553a4e7933173a1dc1f2ae868532.zip"],
+    strip_prefix = "gax-java-%s" % _gax_java_version,
+    urls = ["https://github.com/googleapis/gax-java/archive/v%s.zip" % _gax_java_version],
 )
 
 load("@com_google_api_gax_java//:repository_rules.bzl", "com_google_api_gax_java_properties")
@@ -126,10 +104,6 @@ com_google_api_gax_java_properties(
 load("@com_google_api_gax_java//:repositories.bzl", "com_google_api_gax_java_repositories")
 
 com_google_api_gax_java_repositories()
-
-load("@io_grpc_grpc_java//:repositories.bzl", "grpc_java_repositories")
-
-grpc_java_repositories()
 
 # gapic-generator transitive
 # (goes AFTER java-gax, since both java gax and gapic-generator are written in java and may conflict)
