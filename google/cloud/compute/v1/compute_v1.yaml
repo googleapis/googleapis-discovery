@@ -33,8 +33,6 @@ apis:
 - name: google.cloud.compute.v1.GlobalNetworkEndpointGroups
 - name: google.cloud.compute.v1.GlobalOperations
 - name: google.cloud.compute.v1.HealthChecks
-- name: google.cloud.compute.v1.HttpHealthChecks
-- name: google.cloud.compute.v1.HttpsHealthChecks
 - name: google.cloud.compute.v1.Images
 - name: google.cloud.compute.v1.InstanceGroupManagers
 - name: google.cloud.compute.v1.InstanceGroups
