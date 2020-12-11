@@ -4,6 +4,46 @@
 package(default_visibility = ["//visibility:public"])
 
 ##############################################################################
+# Discovery
+##############################################################################
+load(
+    "@com_google_disco_to_proto3_converter//rules_gapic:disco_to_proto.bzl",
+    "proto_from_disco",
+)
+
+proto_from_disco(
+    name = "compute_small",
+    src = "compute.v1.small.json",
+)
+
+proto_from_disco(
+    name = "compute",
+    src = "compute.v1.json",
+    message_ignorelist = [
+        "HttpHealthCheck",
+        "HttpsHealthCheck",
+        "HttpHealthCheckList",
+        "HttpsHealthCheckList",
+        "GetHttpHealthCheckRequest",
+        "GetHttpsHealthCheckRequest",
+        "PatchHttpHealthCheckRequest",
+        "PatchHttpsHealthCheckRequest",
+        "UpdateHttpHealthCheckRequest",
+        "UpdateHttpsHealthCheckRequest",
+        "InsertHttpHealthCheckRequest",
+        "InsertHttpsHealthCheckRequest",
+        "ListHttpHealthChecksRequest",
+        "ListHttpsHealthChecksRequest",
+        "DeleteHttpHealthCheckRequest",
+        "DeleteHttpsHealthCheckRequest",
+    ],
+    service_ignorelist = [
+        "HttpHealthChecks",
+        "HttpsHealthChecks",
+    ],
+)
+
+##############################################################################
 # Common
 ##############################################################################
 load("@rules_proto//proto:defs.bzl", "proto_library")
@@ -30,14 +70,37 @@ proto_library_with_info(
     ],
 )
 
+proto_library(
+    name = "compute_small_proto",
+    srcs = [
+        "compute_small.proto",
+    ],
+    deps = [
+        "@com_google_googleapis//google/api:annotations_proto",
+        "@com_google_googleapis//google/api:client_proto",
+        "@com_google_googleapis//google/api:field_behavior_proto",
+        "@com_google_googleapis//google/api:resource_proto",
+        "@com_google_googleapis//google/longrunning:operations_proto",
+        "@com_google_protobuf//:descriptor_proto",
+    ],
+)
+
+proto_library_with_info(
+    name = "compute_small_proto_with_info",
+    deps = [
+        ":compute_small_proto",
+        "@com_google_googleapis//google/cloud:common_resources_proto",
+    ],
+)
+
 ##############################################################################
 # Java
 ##############################################################################
 load(
     "@com_google_googleapis_imports//:imports.bzl",
-    "java_gapic_assembly_gradle_pkg",
-    "java_gapic_library",
-    "java_gapic_test",
+    java_gapic_assembly_gradle_pkg = "java_gapic_assembly_gradle_pkg_legacy",
+    java_gapic_library = "java_gapic_library_legacy",
+    java_gapic_test = "java_gapic_test_legacy",
     "java_proto_library",
 )
 
@@ -77,8 +140,6 @@ java_gapic_test(
         "com.google.cloud.compute.v1.GlobalNetworkEndpointGroupsClientTest",
         "com.google.cloud.compute.v1.GlobalOperationsClientTest",
         "com.google.cloud.compute.v1.HealthChecksClientTest",
-        "com.google.cloud.compute.v1.HttpHealthChecksClientTest",
-        "com.google.cloud.compute.v1.HttpsHealthChecksClientTest",
         "com.google.cloud.compute.v1.ImagesClientTest",
         "com.google.cloud.compute.v1.InstanceGroupManagersClientTest",
         "com.google.cloud.compute.v1.InstanceGroupsClientTest",
@@ -149,14 +210,52 @@ java_gapic_assembly_gradle_pkg(
     ],
 )
 
+# Java Compute Small (for testing and prototyping purposes)
+java_proto_library(
+    name = "compute_small_java_proto",
+    deps = [":compute_small_proto"],
+)
+
+java_gapic_library(
+    name = "compute_small_java_gapic",
+    src = ":compute_small_proto_with_info",
+    gapic_yaml = "compute_gapic.yaml",
+    package = "google.cloud.compute.v1",
+    service_yaml = "compute_small_v1.yaml",
+    transport = "rest",
+    test_deps = [],
+    deps = [
+        ":compute_small_java_proto",
+    ],
+)
+
+#java_gapic_test(
+#    name = "compute_small_java_gapic_test_suite",
+#    test_classes = [
+#        "com.google.cloud.compute.v1.AddressesClientTest",
+#    ],
+#    runtime_deps = [":compute_small_java_gapic_test"],
+#)
+
+# Open Source Packages
+java_gapic_assembly_gradle_pkg(
+    name = "google-cloud-compute-small-v1-java",
+    transport = "rest",
+    deps = [
+        ":compute_small_java_gapic",
+        ":compute_small_java_proto",
+        ":compute_small_proto",
+    ],
+)
+
 ##############################################################################
 # PHP
 ##############################################################################
 load(
     "@com_google_googleapis_imports//:imports.bzl",
-    "php_gapic_assembly_pkg",
-    "php_gapic_library",
-    "php_proto_library",
+    php_gapic_assembly_pkg = "php_gapic_assembly_pkg",
+    php_gapic_library = "php_gapic_library",
+    php_proto_library = "php_proto_library",
 )
 
 php_proto_library(
