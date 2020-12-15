@@ -19,6 +19,7 @@ switched_rules_by_language(
     grpc = True,
     java = True,
     php = True,
+    nodejs = True,
 )
 
 # Protobuf depends on very old version of bazel_skylib (forward compatible with the new one).
@@ -288,16 +289,11 @@ go_gapic_repositories()
 # TypeScript
 ##############################################################################
 
-_gapic_generator_typescript_version = "1.2.8"
-
-_gapic_generator_typescript_sha256 = "1206afaf44143de21881c59646ce6a121f490b8ef193fc81f00bae20e90dbb7d"
-
 ### TypeScript generator
 http_archive(
     name = "gapic_generator_typescript",
-    sha256 = _gapic_generator_typescript_sha256,
-    strip_prefix = "gapic-generator-typescript-%s" % _gapic_generator_typescript_version,
-    urls = ["https://github.com/googleapis/gapic-generator-typescript/archive/v%s.tar.gz" % _gapic_generator_typescript_version],
+    strip_prefix = "gapic-generator-typescript-diregapic",
+    urls = ["https://github.com/googleapis/gapic-generator-typescript/archive/diregapic.tar.gz"],
 )
 
 load("@gapic_generator_typescript//:repositories.bzl", "gapic_generator_typescript_repositories")
