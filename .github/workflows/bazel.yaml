@@ -12,6 +12,8 @@ jobs:
     container: l.gcr.io/google/bazel
     steps:
     - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: apt-get update && apt-get -y install libxml2
     - name: Run bazel build in google/cloud/compute/v1
       run: bazel build '//google/cloud/compute/v1:*'
     - name: Run generated tests
