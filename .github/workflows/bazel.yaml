@@ -2,9 +2,9 @@ name: Bazel build and test
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches:
+      - master
   pull_request:
-    branches: [ $default-branch ]
 
 jobs:
   build:
