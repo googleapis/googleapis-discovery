@@ -292,8 +292,8 @@ go_gapic_repositories()
 ### TypeScript generator
 http_archive(
     name = "gapic_generator_typescript",
-    strip_prefix = "gapic-generator-typescript-diregapic",
-    urls = ["https://github.com/googleapis/gapic-generator-typescript/archive/diregapic.tar.gz"],
+    strip_prefix = "gapic-generator-typescript-c92c02cdce439b9f7934a597cb104a7bfbbc372e",
+    urls = ["https://github.com/googleapis/gapic-generator-typescript/archive/c92c02cdce439b9f7934a597cb104a7bfbbc372e.tar.gz"],
 )
 
 load("@gapic_generator_typescript//:repositories.bzl", "gapic_generator_typescript_repositories")
