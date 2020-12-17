@@ -12,12 +12,12 @@ load(
 )
 
 proto_from_disco(
-    name = "compute_small",
+    name = "compute_small_gen",
     src = "compute.v1.small.json",
 )
 
 proto_from_disco(
-    name = "compute",
+    name = "compute_gen",
     src = "compute.v1.json",
     message_ignorelist = [
         "HttpHealthCheck",
