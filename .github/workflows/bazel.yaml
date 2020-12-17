@@ -1,0 +1,18 @@
+name: Bazel build and test
+
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: l.gcr.io/google/bazel
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run bazel build in google/cloud/compute/v1
+      run: bazel build '//google/cloud/compute/v1:*'
+    - name: Run generated tests
+      run: bazel test '//google/cloud/compute/v1:*'
