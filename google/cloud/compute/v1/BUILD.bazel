@@ -282,3 +282,45 @@ php_gapic_assembly_pkg(
         ":compute_php_proto",
     ],
 )
+
+##############################################################################
+# Node.js
+##############################################################################
+load(
+    "@com_google_googleapis_imports//:imports.bzl",
+    "nodejs_gapic_assembly_pkg",
+    "nodejs_gapic_library",
+)
+
+nodejs_gapic_library(
+    name = "compute_nodejs_gapic",
+    package_name = "@google-cloud/compute",
+    src = ":compute_proto_with_info",
+    extra_protoc_parameters = ["metadata"],
+    deps = [],
+)
+
+nodejs_gapic_assembly_pkg(
+    name = "compute-v1-nodejs",
+    deps = [
+        ":compute_nodejs_gapic",
+        ":compute_proto",
+    ],
+)
+
+# Node.js Compute Small (for testing and prototyping purposes)
+nodejs_gapic_library(
+    name = "compute_small_nodejs_gapic",
+    package_name = "@google-cloud/compute-small",
+    src = ":compute_small_proto_with_info",
+    extra_protoc_parameters = ["metadata"],
+    deps = [],
+)
+
+nodejs_gapic_assembly_pkg(
+    name = "compute-small-v1-nodejs",
+    deps = [
+        ":compute_small_nodejs_gapic",
+        ":compute_small_proto",
+    ],
+)
