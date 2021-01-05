@@ -5,8 +5,6 @@ on:
     branches:
       - master
   pull_request:
-  schedule:
-    - cron: '0 13 * * *'  # 5:00am Pacific time every day
 
 jobs:
   build:
@@ -14,7 +12,26 @@ jobs:
     container: gcr.io/gapic-images/googleapis-bazel
     steps:
     - uses: actions/checkout@v2
+
+    - name: Cache Bazel files
+      id: cache-bazel
+      uses: actions/cache@v2
+      with:
+        path: ~/.cache/bazel
+        key: ${{ runner.os }}-bazel
+
+    - name: Cache not found
+      if: steps.cache-bazel.outputs.cache-hit != 'true'
+      run: echo "No cache found."
+
+    - name: Cache found
+      if: steps.cache-bazel.outputs.cache-hit == 'true'
+      run: |
+        echo "Cache found. Cache size:"
+        du -sh ~/.cache/bazel
+
     - name: Run bazel build in google/cloud/compute/v1
       run: bazel build '//google/cloud/compute/v1/...'
+
     - name: Run generated tests
       run: bazel test '//google/cloud/compute/v1/...'
