@@ -1,3 +1,7 @@
+# This Dockerfile was used to build gcr.io/gapic-images/googleapis-bazel
+# which is used in GitHub Actions CI for this repository
+# (see .github/workflows/ci.yaml).
+
 FROM python:3.8
 
 RUN apt-get update
@@ -15,4 +19,3 @@ RUN echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.
 RUN apt-get update && apt-get install -y bazel
 
 ENTRYPOINT [ "/bin/bash" ]
-
