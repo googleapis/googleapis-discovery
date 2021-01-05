@@ -59,6 +59,7 @@ proto_library(
         "@com_google_googleapis//google/api:client_proto",
         "@com_google_googleapis//google/api:field_behavior_proto",
         "@com_google_googleapis//google/api:resource_proto",
+        "@com_google_protobuf//:descriptor_proto",
     ],
 )
 
@@ -245,6 +246,52 @@ java_gapic_assembly_gradle_pkg(
         ":compute_small_java_gapic",
         ":compute_small_java_proto",
         ":compute_small_proto",
+    ],
+)
+
+##############################################################################
+# Python
+##############################################################################
+load(
+    "@com_google_googleapis_imports//:imports.bzl",
+    "py_gapic_assembly_pkg",
+    "py_gapic_library",
+)
+
+py_gapic_library(
+    name = "compute_py_gapic",
+    opt_args = [
+        "transport=rest"
+    ],
+    srcs = [
+        ":compute_proto"
+    ],
+)
+
+# Open Source Packages
+py_gapic_assembly_pkg(
+    name = "compute-v1-py",
+    deps = [
+        ":compute_py_gapic",
+    ],
+)
+
+# Python Compute Small (for testing and prototyping purposes)
+py_gapic_library(
+    name = "compute_small_py_gapic",
+    srcs = [
+        ":compute_small_proto"
+    ],
+    opt_args = [
+        "transport=rest"
+    ],
+)
+
+# Open Source Packages
+py_gapic_assembly_pkg(
+    name = "compute-small-v1-py",
+    deps = [
+        ":compute_small_py_gapic",
     ],
 )
 
