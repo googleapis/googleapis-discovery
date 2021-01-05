@@ -20,6 +20,7 @@ switched_rules_by_language(
     java = True,
     php = True,
     nodejs = True,
+    python = True,
 )
 
 # Protobuf depends on very old version of bazel_skylib (forward compatible with the new one).
@@ -35,8 +36,8 @@ http_archive(
 # version of the library will be selected as a transitive dependency of gRPC.
 http_archive(
     name = "rules_python",
-    strip_prefix = "rules_python-748aa53d7701e71101dfd15d800e100f6ff8e5d1",
-    url = "https://github.com/bazelbuild/rules_python/archive/748aa53d7701e71101dfd15d800e100f6ff8e5d1.zip",
+    strip_prefix = "rules_python-0.1.0",
+    url = "https://github.com/bazelbuild/rules_python/archive/0.1.0.tar.gz",
 )
 
 http_archive(
@@ -70,8 +71,8 @@ rules_proto_toolchains()
 # section
 http_archive(
     name = "com_google_api_codegen",
-    strip_prefix = "gapic-generator-2.9.0",
-    urls = ["https://github.com/googleapis/gapic-generator/archive/v2.9.0.zip"],
+    strip_prefix = "gapic-generator-2.10.1",
+    urls = ["https://github.com/googleapis/gapic-generator/archive/v2.10.1.zip"],
 )
 
 # rules_go (support Golang under bazel)
@@ -235,8 +236,8 @@ pip_repositories()
 # Change upstream repository once PR is merged
 http_archive(
     name = "gapic_generator_python",
-    strip_prefix = "gapic-generator-python-0.35.9",
-    urls = ["https://github.com/googleapis/gapic-generator-python/archive/v0.35.9.zip"],
+    strip_prefix = "gapic-generator-python-56c31de4a9f661e3d69b52e19c9a28dddfe9d7dc",
+    urls = ["https://github.com/googleapis/gapic-generator-python/archive/56c31de4a9f661e3d69b52e19c9a28dddfe9d7dc.zip"],
 )
 
 load(
@@ -248,10 +249,6 @@ load(
 gapic_generator_python()
 
 gapic_generator_register_toolchains()
-
-load("@gapic_generator_python_pip_deps//:requirements.bzl", "pip_install")
-
-pip_install()
 
 ##############################################################################
 # Go
