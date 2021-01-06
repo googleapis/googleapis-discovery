@@ -23,7 +23,8 @@ jobs:
 
     - name: Cache not found
       if: steps.cache-bazel.outputs.cache-hit != 'true'
-      run: echo "No cache found. Cache key: ${{ runner.os }}-bazel-${{ jobs.build.container.image }}-${{ secrets.CACHE_VERSION }}"
+      run: |
+        echo "No cache found. Cache key: ${{ runner.os }}-bazel-${{ jobs.build.container.image }}-${{ secrets.CACHE_VERSION }}"
 
     - name: Cache found
       if: steps.cache-bazel.outputs.cache-hit == 'true'
