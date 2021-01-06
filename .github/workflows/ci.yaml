@@ -1,8 +1,5 @@
 name: Bazel build and test
 
-env:
-  DOCKER_VERSION: '20210105'
-
 on:
   push:
     branches:
@@ -12,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: gcr.io/gapic-images/googleapis-bazel:${{ env.DOCKER_VERSION }}
+    container: gcr.io/gapic-images/googleapis-bazel:20210105
     # Dockerfile for this image is checked in on the top level of this repository
     steps:
     - uses: actions/checkout@v2
@@ -22,16 +19,17 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ~/.cache/bazel
-        key: ${{ runner.os }}-bazel-${{ env.DOCKER_VERSION }}-${{ secrets.CACHE_VERSION }}
+        key: ${{ runner.os }}-bazel-${{ jobs.build.container.image }}-${{ secrets.CACHE_VERSION }}
 
     - name: Cache not found
       if: steps.cache-bazel.outputs.cache-hit != 'true'
-      run: echo "No cache found."
+      run: echo "No cache found. Cache key: ${{ runner.os }}-bazel-${{ jobs.build.container.image }}-${{ secrets.CACHE_VERSION }}"
 
     - name: Cache found
       if: steps.cache-bazel.outputs.cache-hit == 'true'
       run: |
-        echo "Cache found. Cache size:"
+        echo "Cache found. Cache key: ${{ runner.os }}-bazel-${{ jobs.build.container.image }}-${{ secrets.CACHE_VERSION }}"
+        echo -n "Cache size: "
         du -sh ~/.cache/bazel
         echo "If the cache seems broken, update the CACHE_VERSION secret in"
         echo "https://github.com/googleapis/googleapis-discovery/settings/secrets/actions"
