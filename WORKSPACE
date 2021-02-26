@@ -231,8 +231,8 @@ pip_repositories()
 
 http_archive(
     name = "gapic_generator_python",
-    strip_prefix = "gapic-generator-python-0.40.8",
-    urls = ["https://github.com/googleapis/gapic-generator-python/archive/v0.40.8.zip"],
+    strip_prefix = "gapic-generator-python-0.40.10",
+    urls = ["https://github.com/googleapis/gapic-generator-python/archive/v0.40.10.zip"],
 )
 
 load(
