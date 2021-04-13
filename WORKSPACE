@@ -107,9 +107,9 @@ go_register_toolchains()
 
 http_archive(
     name = "com_github_grpc_grpc",
-    sha256 = "0f330e4734f49d2bfdb9ad195b021720b5dd2e2a534cdf21c7ddc7f7eb42e170",
-    strip_prefix = "grpc-1.33.1",
-    urls = ["https://github.com/grpc/grpc/archive/v1.33.1.zip"],
+    sha256 = "b9f6c5da61f755d993d07a76d31ef0c2509c0267897859cac6dccfd7c9f9da77",
+    strip_prefix = "grpc-1.37.0",
+    urls = ["https://github.com/grpc/grpc/archive/v1.37.0.zip"],
 )
 
 load("@com_github_grpc_grpc//bazel:grpc_deps.bzl", "grpc_deps")
