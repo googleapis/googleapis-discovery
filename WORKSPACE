@@ -407,8 +407,8 @@ gapic_generator_ruby_repositories()
 
 http_archive(
     name = "com_google_disco_to_proto3_converter",
-    strip_prefix = "disco-to-proto3-converter-451838644577e9054eeb378d0514a8c089bc3302",
-    urls = ["https://github.com/googleapis/disco-to-proto3-converter/archive/451838644577e9054eeb378d0514a8c089bc3302.zip"],
+    strip_prefix = "disco-to-proto3-converter-6f13b7022a0c0d19ee5a90508082e55b028e1c43",
+    urls = ["https://github.com/googleapis/disco-to-proto3-converter/archive/6f13b7022a0c0d19ee5a90508082e55b028e1c43.zip"],
 )
 
 load("@com_google_disco_to_proto3_converter//:repository_rules.bzl", "com_google_disco_to_proto3_converter_properties")
