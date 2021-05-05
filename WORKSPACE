@@ -4,8 +4,8 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
     name = "com_google_googleapis",
-    strip_prefix = "googleapis-c32a98c90a10e92625abc9aa35182f1e4816342c",
-    urls = ["https://github.com/googleapis/googleapis/archive/c32a98c90a10e92625abc9aa35182f1e4816342c.zip"],
+    strip_prefix = "googleapis-f5ce261910c373fdd96bdaa47173f5604562876f",
+    urls = ["https://github.com/googleapis/googleapis/archive/f5ce261910c373fdd96bdaa47173f5604562876f.zip"],
 )
 
 ##############################################################################
@@ -18,8 +18,8 @@ switched_rules_by_language(
     gapic = True,
     grpc = True,
     java = True,
-    php = True,
     nodejs = True,
+    php = True,
     python = True,
 )
 
