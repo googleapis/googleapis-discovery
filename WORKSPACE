@@ -353,7 +353,7 @@ php(
 php_gapic_repositories()
 
 # PHP micro-generator (beta)
-_gapic_generator_php_version = "0.1.1"
+_gapic_generator_php_version = "0.1.2"
 
 http_archive(
     name = "gapic_generator_php",
