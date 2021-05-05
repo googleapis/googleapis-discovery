@@ -18,15 +18,4 @@ config_schema_version: 2.0.0
 language_settings:
   java:
     package_name: com.google.cloud.compute.v1
-  python:
-    package_name: google.cloud.compute_v1.gapic
-  go:
-    package_name: cloud.google.com/go/compute/apiv1
-  csharp:
-    package_name: Google.Compute.V1
-  ruby:
-    package_name: Google::Cloud::Compute::V1
-  php:
-    package_name: Google\Cloud\Compute\V1
-  nodejs:
-    package_name: compute.v1
+

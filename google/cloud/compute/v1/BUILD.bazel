@@ -99,10 +99,10 @@ proto_library_with_info(
 ##############################################################################
 load(
     "@com_google_googleapis_imports//:imports.bzl",
+    "java_proto_library",
     java_gapic_assembly_gradle_pkg = "java_gapic_assembly_gradle_pkg_legacy",
     java_gapic_library = "java_gapic_library_legacy",
     java_gapic_test = "java_gapic_test_legacy",
-    "java_proto_library",
 )
 
 java_proto_library(
@@ -116,8 +116,8 @@ java_gapic_library(
     gapic_yaml = "compute_gapic.yaml",
     package = "google.cloud.compute.v1",
     service_yaml = "compute_v1.yaml",
-    transport = "rest",
     test_deps = [],
+    transport = "rest",
     deps = [
         ":compute_java_proto",
     ],
@@ -223,8 +223,8 @@ java_gapic_library(
     gapic_yaml = "compute_gapic.yaml",
     package = "google.cloud.compute.v1",
     service_yaml = "compute_small_v1.yaml",
-    transport = "rest",
     test_deps = [],
+    transport = "rest",
     deps = [
         ":compute_small_java_proto",
     ],
@@ -260,11 +260,11 @@ load(
 
 py_gapic_library(
     name = "compute_py_gapic",
-    opt_args = [
-        "transport=rest"
-    ],
     srcs = [
-        ":compute_proto"
+        ":compute_proto",
+    ],
+    opt_args = [
+        "transport=rest",
     ],
 )
 
@@ -280,10 +280,10 @@ py_gapic_assembly_pkg(
 py_gapic_library(
     name = "compute_small_py_gapic",
     srcs = [
-        ":compute_small_proto"
+        ":compute_small_proto",
     ],
     opt_args = [
-        "transport=rest"
+        "transport=rest",
     ],
 )
 
@@ -300,9 +300,9 @@ py_gapic_assembly_pkg(
 ##############################################################################
 load(
     "@com_google_googleapis_imports//:imports.bzl",
-    php_gapic_assembly_pkg = "php_gapic_assembly_pkg",
-    php_gapic_library = "php_gapic_library",
-    php_proto_library = "php_proto_library",
+    php_gapic_assembly_pkg = "php_gapic_assembly_pkg2",
+    php_gapic_library = "php_gapic_library2",
+    php_proto_library = "php_proto_library2",
 )
 
 php_proto_library(
@@ -312,9 +312,7 @@ php_proto_library(
 
 php_gapic_library(
     name = "compute_php_gapic",
-    src = ":compute_proto_with_info",
-    gapic_yaml = "compute_gapic.yaml",
-    package = "google.cloud.compute.v1",
+    srcs = [":compute_proto_with_info"],
     service_yaml = "compute_v1.yaml",
     transport = "rest",
     deps = [
