@@ -18,8 +18,8 @@ switched_rules_by_language(
     gapic = True,
     grpc = True,
     java = True,
-    php = True,
     nodejs = True,
+    php = True,
     python = True,
 )
 
@@ -353,7 +353,7 @@ php(
 php_gapic_repositories()
 
 # PHP micro-generator (beta)
-_gapic_generator_php_version = "0.1.1"
+_gapic_generator_php_version = "0.1.3"
 
 http_archive(
     name = "gapic_generator_php",
