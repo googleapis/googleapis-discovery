@@ -21,6 +21,7 @@ switched_rules_by_language(
     nodejs = True,
     php = True,
     python = True,
+    ruby = True,
 )
 
 # Protobuf depends on very old version of bazel_skylib (forward compatible with the new one).
@@ -391,10 +392,14 @@ gapic_generator_csharp_repositories()
 # Ruby
 ##############################################################################
 
+_gapic_generator_ruby_version = "0.7.4"
+_gapic_generator_ruby_sha256 = "15cb86cbe1ef4bb793a49e4423763a05c7a1fe3cd4d1dd6f4a036898d2f4437c"
+
 http_archive(
     name = "gapic_generator_ruby",
-    strip_prefix = "gapic-generator-ruby-cc272f0905e45950873e04d3cd8df77a63f215ca",
-    urls = ["https://github.com/googleapis/gapic-generator-ruby/archive/cc272f0905e45950873e04d3cd8df77a63f215ca.zip"],
+    sha256 = _gapic_generator_ruby_sha256,
+    strip_prefix = "gapic-generator-ruby-gapic-generator-v%s" % _gapic_generator_ruby_version,
+    urls = ["https://github.com/googleapis/gapic-generator-ruby/archive/refs/tags/gapic-generator/v%s.tar.gz" % _gapic_generator_ruby_version],
 )
 
 load("@gapic_generator_ruby//rules_ruby_gapic:repositories.bzl", "gapic_generator_ruby_repositories")
