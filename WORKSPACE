@@ -41,6 +41,7 @@ http_archive(
     url = "https://github.com/bazelbuild/rules_python/archive/0.1.0.tar.gz",
 )
 
+# TODO: Replace with proper 3.17.x protobuf once that is released
 http_archive(
     name = "com_google_protobuf",
     strip_prefix = "protobuf-3.15.x",
@@ -71,8 +72,8 @@ rules_proto_toolchains()
 # section
 http_archive(
     name = "com_google_api_codegen",
-    strip_prefix = "gapic-generator-2.10.4",
-    urls = ["https://github.com/googleapis/gapic-generator/archive/v2.10.4.zip"],
+    strip_prefix = "gapic-generator-2.11.1",
+    urls = ["https://github.com/googleapis/gapic-generator/archive/v2.11.1.zip"],
 )
 
 # rules_go (support Golang under bazel)
@@ -192,7 +193,7 @@ load("@gapic_generator_java//:repositories.bzl", "gapic_generator_java_repositor
 
 gapic_generator_java_repositories()
 
-_gax_java_version = "1.62.0"
+_gax_java_version = "1.63.3"
 
 http_archive(
     name = "com_google_api_gax_java",
