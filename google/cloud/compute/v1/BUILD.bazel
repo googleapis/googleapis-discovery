@@ -99,10 +99,14 @@ proto_library_with_info(
 ##############################################################################
 load(
     "@com_google_googleapis_imports//:imports.bzl",
+    "java_gapic_assembly_gradle_pkg_legacy",
+    "java_gapic_library_legacy",
+    "java_gapic_test_legacy",
+    "java_gapic_assembly_gradle_pkg",
+    "java_gapic_library",
+    "java_gapic_test",
     "java_proto_library",
-    java_gapic_assembly_gradle_pkg = "java_gapic_assembly_gradle_pkg_legacy",
-    java_gapic_library = "java_gapic_library_legacy",
-    java_gapic_test = "java_gapic_test_legacy",
+    "java_grpc_library",
 )
 
 java_proto_library(
@@ -110,20 +114,20 @@ java_proto_library(
     deps = [":compute_proto"],
 )
 
-java_gapic_library(
+java_gapic_library_legacy(
     name = "compute_java_gapic",
     src = ":compute_proto_with_info",
     gapic_yaml = "compute_gapic.yaml",
     package = "google.cloud.compute.v1",
     service_yaml = "compute_v1.yaml",
-    test_deps = [],
     transport = "rest",
+    test_deps = [],
     deps = [
         ":compute_java_proto",
     ],
 )
 
-java_gapic_test(
+java_gapic_test_legacy(
     name = "compute_java_gapic_test_suite",
     test_classes = [
         "com.google.cloud.compute.v1.AcceleratorTypesClientTest",
@@ -201,7 +205,7 @@ java_gapic_test(
 )
 
 # Open Source Packages
-java_gapic_assembly_gradle_pkg(
+java_gapic_assembly_gradle_pkg_legacy(
     name = "google-cloud-compute-v1-java",
     transport = "rest",
     deps = [
@@ -217,26 +221,16 @@ java_proto_library(
     deps = [":compute_small_proto"],
 )
 
+# Used for integration tests
 java_gapic_library(
     name = "compute_small_java_gapic",
-    src = ":compute_small_proto_with_info",
-    gapic_yaml = "compute_gapic.yaml",
-    package = "google.cloud.compute.v1",
-    service_yaml = "compute_small_v1.yaml",
-    test_deps = [],
+    srcs = [":compute_small_proto_with_info"],
     transport = "rest",
+    test_deps = [],
     deps = [
         ":compute_small_java_proto",
     ],
 )
-
-#java_gapic_test(
-#    name = "compute_small_java_gapic_test_suite",
-#    test_classes = [
-#        "com.google.cloud.compute.v1.AddressesClientTest",
-#    ],
-#    runtime_deps = [":compute_small_java_gapic_test"],
-#)
 
 # Open Source Packages
 java_gapic_assembly_gradle_pkg(
