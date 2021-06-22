@@ -4,8 +4,8 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
     name = "com_google_googleapis",
-    strip_prefix = "googleapis-f5ce261910c373fdd96bdaa47173f5604562876f",
-    urls = ["https://github.com/googleapis/googleapis/archive/f5ce261910c373fdd96bdaa47173f5604562876f.zip"],
+    strip_prefix = "googleapis-dba65e3c28aa8e26c4d5b8ec9c80fbd0d0f29864",
+    urls = ["https://github.com/googleapis/googleapis/archive/dba65e3c28aa8e26c4d5b8ec9c80fbd0d0f29864.zip"],
 )
 
 ##############################################################################
@@ -173,7 +173,7 @@ apple_support_dependencies()
 ##############################################################################
 # Java
 ##############################################################################
-_gax_java_version = "1.64.0"
+_gax_java_version = "1.65.1"
 
 http_archive(
     name = "com_google_api_gax_java",
@@ -198,7 +198,7 @@ grpc_java_repositories()
 
 # Java microgenerator.
 # Must go AFTER java-gax, since both java gax and gapic-generator are written in java and may conflict.
-_gapic_generator_java_version = "1.0.11"
+_gapic_generator_java_version = "1.0.13"
 
 http_archive(
     name = "gapic_generator_java",
@@ -274,8 +274,8 @@ pip_repositories()
 
 http_archive(
     name = "gapic_generator_python",
-    strip_prefix = "gapic-generator-python-0.48.0",
-    urls = ["https://github.com/googleapis/gapic-generator-python/archive/v0.48.0.zip"],
+    strip_prefix = "gapic-generator-python-0.50.0",
+    urls = ["https://github.com/googleapis/gapic-generator-python/archive/v0.50.0.zip"],
 )
 
 load(
@@ -312,9 +312,9 @@ go_gapic_repositories()
 # TypeScript
 ##############################################################################
 
-_gapic_generator_typescript_version = "1.4.0"
+_gapic_generator_typescript_version = "1.5.0"
 
-_gapic_generator_typescript_sha256 = "34718494b0696706ccfa46c8ed360f1999d7e33d5121aa86bb302af402b72d46"
+_gapic_generator_typescript_sha256 = "17e9387f3d6da8e5382b4e138ccc401137d2938b394040984ef2ca11ff9f8aea"
 
 ### TypeScript generator
 http_archive(
@@ -344,11 +344,11 @@ yarn_install(
 # PHP
 ##############################################################################
 
-load("@com_google_api_codegen//rules_gapic/php:php_gapic_repositories.bzl", "php", "php_gapic_repositories")
+load("@rules_gapic//php:php_gapic_repositories.bzl", "php", "php_gapic_repositories")
 
 php(
     name = "php",
-    prebuilt_phps = ["@com_google_api_codegen//rules_gapic/php:resources/php-7.1.30_linux_x86_64.tar.gz"],
+    prebuilt_phps = ["@rules_gapic//php:resources/php-7.1.30_linux_x86_64.tar.gz"],
     strip_prefix = "php-7.1.30",
     urls = ["https://www.php.net/distributions/php-7.1.30.tar.gz"],
 )
@@ -356,7 +356,7 @@ php(
 php_gapic_repositories()
 
 # PHP micro-generator (beta)
-_gapic_generator_php_version = "0.1.7"
+_gapic_generator_php_version = "1.0.2"
 
 http_archive(
     name = "gapic_generator_php",
@@ -385,9 +385,9 @@ http_archive(
     urls = ["https://github.com/googleapis/gax-dotnet/archive/refs/tags/%s.tar.gz" % _gax_dotnet_version],
 )
 
-_gapic_generator_csharp_version = "1.3.6"
+_gapic_generator_csharp_version = "1.3.7"
 
-_gapic_generator_csharp_sha256 = "6340309dc6b86bfd0dc2c9fca41cf991c7163eda2f48a7062fe4da5bd62c99d6"
+_gapic_generator_csharp_sha256 = "7f4fca6f9ec3902ae0bd0e6b96593e6370fb035ef0e56dd505f5b411b7138a7a"
 
 http_archive(
     name = "gapic_generator_csharp",
@@ -403,9 +403,9 @@ gapic_generator_csharp_repositories()
 ##############################################################################
 # Ruby
 ##############################################################################
-_gapic_generator_ruby_version = "e10d40afa96a28036da03bb9b0af17d702715886"
+_gapic_generator_ruby_version = "2b66e7aca8d5d7d4cb7bf436776d7713d264cab8"
 
-_gapic_generator_ruby_sha256 = "a560f2f0d12411b2b4f76ba087f6fcf4d517ef1e9abec1b5a517dfe348e67f3b"
+_gapic_generator_ruby_sha256 = "b00e2fa2c6f6734a32cffe77ffe5a74d02bbfaa4ad70dd92fde43c47c090b663"
 
 http_archive(
     name = "gapic_generator_ruby",
