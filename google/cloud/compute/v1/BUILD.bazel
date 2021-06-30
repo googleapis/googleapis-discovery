@@ -8,6 +8,7 @@ package(default_visibility = ["//visibility:public"])
 ##############################################################################
 load(
     "@com_google_disco_to_proto3_converter//rules_gapic:disco_to_proto.bzl",
+    "grpc_service_config_from_disco",
     "proto_from_disco",
 )
 
@@ -16,31 +17,47 @@ proto_from_disco(
     src = "compute.v1.small.json",
 )
 
+grpc_service_config_from_disco(
+    name = "compute_small_grpc_service_config_gen",
+    src = "compute.v1.small.json",
+)
+
+_MESSAGE_IGNORE_LIST = [
+    "HttpHealthCheck",
+    "HttpsHealthCheck",
+    "HttpHealthCheckList",
+    "HttpsHealthCheckList",
+    "GetHttpHealthCheckRequest",
+    "GetHttpsHealthCheckRequest",
+    "PatchHttpHealthCheckRequest",
+    "PatchHttpsHealthCheckRequest",
+    "UpdateHttpHealthCheckRequest",
+    "UpdateHttpsHealthCheckRequest",
+    "InsertHttpHealthCheckRequest",
+    "InsertHttpsHealthCheckRequest",
+    "ListHttpHealthChecksRequest",
+    "ListHttpsHealthChecksRequest",
+    "DeleteHttpHealthCheckRequest",
+    "DeleteHttpsHealthCheckRequest",
+]
+
+_SERVICE_IGNORELIST = [
+    "HttpHealthChecks",
+    "HttpsHealthChecks",
+]
+
 proto_from_disco(
     name = "compute_gen",
     src = "compute.v1.json",
-    message_ignorelist = [
-        "HttpHealthCheck",
-        "HttpsHealthCheck",
-        "HttpHealthCheckList",
-        "HttpsHealthCheckList",
-        "GetHttpHealthCheckRequest",
-        "GetHttpsHealthCheckRequest",
-        "PatchHttpHealthCheckRequest",
-        "PatchHttpsHealthCheckRequest",
-        "UpdateHttpHealthCheckRequest",
-        "UpdateHttpsHealthCheckRequest",
-        "InsertHttpHealthCheckRequest",
-        "InsertHttpsHealthCheckRequest",
-        "ListHttpHealthChecksRequest",
-        "ListHttpsHealthChecksRequest",
-        "DeleteHttpHealthCheckRequest",
-        "DeleteHttpsHealthCheckRequest",
-    ],
-    service_ignorelist = [
-        "HttpHealthChecks",
-        "HttpsHealthChecks",
-    ],
+    message_ignorelist = _MESSAGE_IGNORE_LIST,
+    service_ignorelist = _SERVICE_IGNORELIST,
+)
+
+grpc_service_config_from_disco(
+    name = "compute_grpc_service_config_gen",
+    src = "compute.v1.json",
+    message_ignorelist = _MESSAGE_IGNORE_LIST,
+    service_ignorelist = _SERVICE_IGNORELIST,
 )
 
 ##############################################################################
@@ -48,12 +65,6 @@ proto_from_disco(
 ##############################################################################
 load("@rules_proto//proto:defs.bzl", "proto_library")
 load("@com_google_googleapis_imports//:imports.bzl", "proto_library_with_info")
-
-# TODO: Remove legacy rule imports after the monolith has been removed from this repo.
-load(
-    "@com_google_api_codegen//rules_gapic:gapic.bzl",
-    proto_library_with_info_legacy = "proto_library_with_info",
-)
 
 proto_library(
     name = "compute_proto",
@@ -71,14 +82,6 @@ proto_library(
 
 proto_library_with_info(
     name = "compute_proto_with_info",
-    deps = [
-        ":compute_proto",
-        "@com_google_googleapis//google/cloud:common_resources_proto",
-    ],
-)
-
-proto_library_with_info_legacy(
-    name = "compute_proto_with_info_legacy",
     deps = [
         ":compute_proto",
         "@com_google_googleapis//google/cloud:common_resources_proto",
@@ -108,14 +111,6 @@ proto_library_with_info(
     ],
 )
 
-proto_library_with_info_legacy(
-    name = "compute_small_proto_with_info_legacy",
-    deps = [
-        ":compute_small_proto",
-        "@com_google_googleapis//google/cloud:common_resources_proto",
-    ],
-)
-
 ##############################################################################
 # Java
 ##############################################################################
@@ -128,28 +123,15 @@ load(
     "java_proto_library",
 )
 
-# TODO: Remove legacy rule imports after the monolith has been removed from this repo.
-load(
-    "@com_google_api_codegen//rules_gapic/java:java_gapic.bzl",
-    java_gapic_library_legacy = "java_gapic_library",
-    java_gapic_test_legacy = "java_gapic_test",
-)
-load(
-    "@com_google_api_codegen//rules_gapic/java:java_gapic_pkg.bzl",
-    java_gapic_assembly_gradle_pkg_legacy = "java_gapic_assembly_gradle_pkg",
-)
-
 java_proto_library(
     name = "compute_java_proto",
     deps = [":compute_proto"],
 )
 
-java_gapic_library_legacy(
+java_gapic_library(
     name = "compute_java_gapic",
-    src = ":compute_proto_with_info_legacy",
-    gapic_yaml = "compute_gapic.yaml",
-    package = "google.cloud.compute.v1",
-    service_yaml = "compute_v1.yaml",
+    srcs = [":compute_proto_with_info"],
+    grpc_service_config = ":compute_grpc_service_config.json",
     test_deps = [],
     transport = "rest",
     deps = [
@@ -157,7 +139,7 @@ java_gapic_library_legacy(
     ],
 )
 
-java_gapic_test_legacy(
+java_gapic_test(
     name = "compute_java_gapic_test_suite",
     test_classes = [
         "com.google.cloud.compute.v1.AcceleratorTypesClientTest",
@@ -235,7 +217,7 @@ java_gapic_test_legacy(
 )
 
 # Open Source Packages
-java_gapic_assembly_gradle_pkg_legacy(
+java_gapic_assembly_gradle_pkg(
     name = "google-cloud-compute-v1-java",
     transport = "rest",
     deps = [
@@ -254,7 +236,8 @@ java_proto_library(
 # Used for integration tests
 java_gapic_library(
     name = "compute_small_java_gapic",
-    srcs = [":compute_small_proto_with_info_legacy"],
+    srcs = [":compute_small_proto_with_info"],
+    grpc_service_config = ":compute_small_grpc_service_config.json",
     test_deps = [],
     transport = "rest",
     deps = [
