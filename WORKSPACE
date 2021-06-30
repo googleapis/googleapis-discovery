@@ -4,8 +4,8 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
     name = "com_google_googleapis",
-    strip_prefix = "googleapis-dba65e3c28aa8e26c4d5b8ec9c80fbd0d0f29864",
-    urls = ["https://github.com/googleapis/googleapis/archive/dba65e3c28aa8e26c4d5b8ec9c80fbd0d0f29864.zip"],
+    strip_prefix = "googleapis-2e6b987a6f6e65c33ddefe0f2278dbbd38b46a91",
+    urls = ["https://github.com/googleapis/googleapis/archive/2e6b987a6f6e65c33ddefe0f2278dbbd38b46a91.zip"],
 )
 
 ##############################################################################
@@ -68,14 +68,6 @@ rules_proto_dependencies()
 
 rules_proto_toolchains()
 
-# Note gapic-generator contains java-specific and common code, that is why it is imported in common
-# section
-http_archive(
-    name = "com_google_api_codegen",
-    strip_prefix = "gapic-generator-2.11.1",
-    urls = ["https://github.com/googleapis/gapic-generator/archive/v2.11.1.zip"],
-)
-
 # rules_go (support Golang under bazel)
 # This is not in the Go section because we override the same, older dependency brought in by gRPC.
 # TODO(ndietz): move this back to the Go section if gRPC is updated per https://github.com/grpc/grpc/issues/22172
@@ -124,7 +116,7 @@ go_register_toolchains()
 
 gazelle_dependencies()
 
-_rules_gapic_version = "0.5.4"
+_rules_gapic_version = "0.5.5"
 
 http_archive(
     name = "rules_gapic",
@@ -198,7 +190,7 @@ grpc_java_repositories()
 
 # Java microgenerator.
 # Must go AFTER java-gax, since both java gax and gapic-generator are written in java and may conflict.
-_gapic_generator_java_version = "1.0.13"
+_gapic_generator_java_version = "1.0.15"
 
 http_archive(
     name = "gapic_generator_java",
@@ -217,65 +209,23 @@ load("@gapic_generator_java//:repositories.bzl", "gapic_generator_java_repositor
 
 gapic_generator_java_repositories()
 
-# gapic-generator transitive
-# (goes AFTER java-gax, since both java gax and gapic-generator are written in java and may conflict)
-load("@com_google_api_codegen//:repository_rules.bzl", "com_google_api_codegen_properties")
-
-com_google_api_codegen_properties(
-    name = "com_google_api_codegen_properties",
-    file = "@com_google_api_codegen//:dependencies.properties",
-)
-
-load("@com_google_api_codegen//:repositories.bzl", "com_google_api_codegen_repositories")
-
-http_archive(
-    name = "com_google_protoc_java_resource_names_plugin",
-    strip_prefix = "protoc-java-resource-names-plugin-8d749cb5b7aa2734656e1ad36ceda92894f33153",
-    urls = ["https://github.com/googleapis/protoc-java-resource-names-plugin/archive/8d749cb5b7aa2734656e1ad36ceda92894f33153.zip"],
-)
-
-com_google_api_codegen_repositories()
-
-# protoc-java-resource-names-plugin (loaded in com_google_api_codegen_repositories())
-# (required to support resource names feature in gapic generator)
-load(
-    "@com_google_protoc_java_resource_names_plugin//:repositories.bzl",
-    "com_google_protoc_java_resource_names_plugin_repositories",
-)
-
-com_google_protoc_java_resource_names_plugin_repositories()
-
 ##############################################################################
 # Python
 ##############################################################################
-load("@com_google_api_codegen//rules_gapic/python:py_gapic_repositories.bzl", "py_gapic_repositories")
+load("@rules_gapic//python:py_gapic_repositories.bzl", "py_gapic_repositories")
 
 py_gapic_repositories()
-
-http_archive(
-    name = "protoc_docs_plugin",
-    strip_prefix = "protoc-docs-plugin-2bdf14e394bbaa44b81286b1a19c5f229b51c667",
-    urls = ["https://github.com/googleapis/protoc-docs-plugin/archive/2bdf14e394bbaa44b81286b1a19c5f229b51c667.zip"],
-)
-
-load(
-    "@protoc_docs_plugin//:repositories.bzl",
-    "protoc_docs_plugin_register_toolchains",
-    "protoc_docs_plugin_repositories",
-)
-
-protoc_docs_plugin_repositories()
-
-protoc_docs_plugin_register_toolchains()
 
 load("@rules_python//python:pip.bzl", "pip_repositories")
 
 pip_repositories()
 
+_gapic_generator_python_version = "0.50.3"
+
 http_archive(
     name = "gapic_generator_python",
-    strip_prefix = "gapic-generator-python-0.50.0",
-    urls = ["https://github.com/googleapis/gapic-generator-python/archive/v0.50.0.zip"],
+    strip_prefix = "gapic-generator-python-%s" % _gapic_generator_python_version,
+    urls = ["https://github.com/googleapis/gapic-generator-python/archive/v%s.zip" % _gapic_generator_python_version],
 )
 
 load(
@@ -292,7 +242,7 @@ gapic_generator_register_toolchains()
 # Go
 ##############################################################################
 
-_gapic_generator_go_version = "0.20.0"
+_gapic_generator_go_version = "0.21.2"
 
 http_archive(
     name = "com_googleapis_gapic_generator_go",
@@ -303,10 +253,6 @@ http_archive(
 load("@com_googleapis_gapic_generator_go//:repositories.bzl", "com_googleapis_gapic_generator_go_repositories")
 
 com_googleapis_gapic_generator_go_repositories()
-
-load("@com_googleapis_gapic_generator_go//rules_go_gapic:go_gapic_repositories.bzl", "go_gapic_repositories")
-
-go_gapic_repositories()
 
 ##############################################################################
 # TypeScript
@@ -403,6 +349,7 @@ gapic_generator_csharp_repositories()
 ##############################################################################
 # Ruby
 ##############################################################################
+
 _gapic_generator_ruby_version = "2b66e7aca8d5d7d4cb7bf436776d7713d264cab8"
 
 _gapic_generator_ruby_sha256 = "b00e2fa2c6f6734a32cffe77ffe5a74d02bbfaa4ad70dd92fde43c47c090b663"
@@ -424,8 +371,8 @@ gapic_generator_ruby_repositories()
 
 http_archive(
     name = "com_google_disco_to_proto3_converter",
-    strip_prefix = "disco-to-proto3-converter-1839f6aca5e968e59b7acc03e7018b0fda8c480b",
-    urls = ["https://github.com/googleapis/disco-to-proto3-converter/archive/1839f6aca5e968e59b7acc03e7018b0fda8c480b.zip"],
+    strip_prefix = "disco-to-proto3-converter-4b0956884b1aa9b367cf41488b622dc12eb16652",
+    urls = ["https://github.com/googleapis/disco-to-proto3-converter/archive/4b0956884b1aa9b367cf41488b622dc12eb16652.zip"],
 )
 
 load("@com_google_disco_to_proto3_converter//:repository_rules.bzl", "com_google_disco_to_proto3_converter_properties")
