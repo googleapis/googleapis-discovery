@@ -23,6 +23,7 @@ syntax = "proto3";
 package google.cloud.compute.v1;
 
 import "google/api/annotations.proto";
+import "google/longrunning/operations.proto";
 import "google/api/client.proto";
 import "google/api/field_behavior.proto";
 import "google/api/resource.proto";
@@ -27022,7 +27023,11 @@ service Addresses {
   }
 
   // Deletes the specified address resource.
-  rpc Delete(DeleteAddressRequest) returns (Operation) {
+  rpc Delete(DeleteAddressRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/addresses/{address}"
     };
@@ -27038,7 +27043,11 @@ service Addresses {
   }
 
   // Creates an address resource in the specified project by using the data included in the request.
-  rpc Insert(InsertAddressRequest) returns (Operation) {
+  rpc Insert(InsertAddressRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/addresses"
       body: "address_resource"
@@ -27074,7 +27083,11 @@ service Autoscalers {
   }
 
   // Deletes the specified autoscaler.
-  rpc Delete(DeleteAutoscalerRequest) returns (Operation) {
+  rpc Delete(DeleteAutoscalerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/zones/{zone}/autoscalers/{autoscaler}"
     };
@@ -27090,7 +27103,11 @@ service Autoscalers {
   }
 
   // Creates an autoscaler in the specified project using the data included in the request.
-  rpc Insert(InsertAutoscalerRequest) returns (Operation) {
+  rpc Insert(InsertAutoscalerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/autoscalers"
       body: "autoscaler_resource"
@@ -27107,7 +27124,11 @@ service Autoscalers {
   }
 
   // Updates an autoscaler in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
-  rpc Patch(PatchAutoscalerRequest) returns (Operation) {
+  rpc Patch(PatchAutoscalerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/zones/{zone}/autoscalers"
       body: "autoscaler_resource"
@@ -27116,7 +27137,11 @@ service Autoscalers {
   }
 
   // Updates an autoscaler in the specified project using the data included in the request.
-  rpc Update(UpdateAutoscalerRequest) returns (Operation) {
+  rpc Update(UpdateAutoscalerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       put: "/compute/v1/projects/{project}/zones/{zone}/autoscalers"
       body: "autoscaler_resource"
@@ -27136,7 +27161,11 @@ service BackendBuckets {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Adds a key for validating requests with signed URLs for this backend bucket.
-  rpc AddSignedUrlKey(AddSignedUrlKeyBackendBucketRequest) returns (Operation) {
+  rpc AddSignedUrlKey(AddSignedUrlKeyBackendBucketRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/backendBuckets/{backend_bucket}/addSignedUrlKey"
       body: "signed_url_key_resource"
@@ -27145,7 +27174,11 @@ service BackendBuckets {
   }
 
   // Deletes the specified BackendBucket resource.
-  rpc Delete(DeleteBackendBucketRequest) returns (Operation) {
+  rpc Delete(DeleteBackendBucketRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/backendBuckets/{backend_bucket}"
     };
@@ -27153,7 +27186,11 @@ service BackendBuckets {
   }
 
   // Deletes a key for validating requests with signed URLs for this backend bucket.
-  rpc DeleteSignedUrlKey(DeleteSignedUrlKeyBackendBucketRequest) returns (Operation) {
+  rpc DeleteSignedUrlKey(DeleteSignedUrlKeyBackendBucketRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/backendBuckets/{backend_bucket}/deleteSignedUrlKey"
     };
@@ -27169,7 +27206,11 @@ service BackendBuckets {
   }
 
   // Creates a BackendBucket resource in the specified project using the data included in the request.
-  rpc Insert(InsertBackendBucketRequest) returns (Operation) {
+  rpc Insert(InsertBackendBucketRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/backendBuckets"
       body: "backend_bucket_resource"
@@ -27186,7 +27227,11 @@ service BackendBuckets {
   }
 
   // Updates the specified BackendBucket resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
-  rpc Patch(PatchBackendBucketRequest) returns (Operation) {
+  rpc Patch(PatchBackendBucketRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/global/backendBuckets/{backend_bucket}"
       body: "backend_bucket_resource"
@@ -27195,7 +27240,11 @@ service BackendBuckets {
   }
 
   // Updates the specified BackendBucket resource with the data included in the request.
-  rpc Update(UpdateBackendBucketRequest) returns (Operation) {
+  rpc Update(UpdateBackendBucketRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       put: "/compute/v1/projects/{project}/global/backendBuckets/{backend_bucket}"
       body: "backend_bucket_resource"
@@ -27215,7 +27264,11 @@ service BackendServices {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Adds a key for validating requests with signed URLs for this backend service.
-  rpc AddSignedUrlKey(AddSignedUrlKeyBackendServiceRequest) returns (Operation) {
+  rpc AddSignedUrlKey(AddSignedUrlKeyBackendServiceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/backendServices/{backend_service}/addSignedUrlKey"
       body: "signed_url_key_resource"
@@ -27232,7 +27285,11 @@ service BackendServices {
   }
 
   // Deletes the specified BackendService resource.
-  rpc Delete(DeleteBackendServiceRequest) returns (Operation) {
+  rpc Delete(DeleteBackendServiceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/backendServices/{backend_service}"
     };
@@ -27240,7 +27297,11 @@ service BackendServices {
   }
 
   // Deletes a key for validating requests with signed URLs for this backend service.
-  rpc DeleteSignedUrlKey(DeleteSignedUrlKeyBackendServiceRequest) returns (Operation) {
+  rpc DeleteSignedUrlKey(DeleteSignedUrlKeyBackendServiceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/backendServices/{backend_service}/deleteSignedUrlKey"
     };
@@ -27269,7 +27330,11 @@ service BackendServices {
   }
 
   // Creates a BackendService resource in the specified project using the data included in the request. For more information, see  Backend services overview.
-  rpc Insert(InsertBackendServiceRequest) returns (Operation) {
+  rpc Insert(InsertBackendServiceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/backendServices"
       body: "backend_service_resource"
@@ -27286,7 +27351,11 @@ service BackendServices {
   }
 
   // Patches the specified BackendService resource with the data included in the request. For more information, see  Backend services overview. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
-  rpc Patch(PatchBackendServiceRequest) returns (Operation) {
+  rpc Patch(PatchBackendServiceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/global/backendServices/{backend_service}"
       body: "backend_service_resource"
@@ -27295,7 +27364,11 @@ service BackendServices {
   }
 
   // Sets the Google Cloud Armor security policy for the specified backend service. For more information, see Google Cloud Armor Overview
-  rpc SetSecurityPolicy(SetSecurityPolicyBackendServiceRequest) returns (Operation) {
+  rpc SetSecurityPolicy(SetSecurityPolicyBackendServiceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/backendServices/{backend_service}/setSecurityPolicy"
       body: "security_policy_reference_resource"
@@ -27304,7 +27377,11 @@ service BackendServices {
   }
 
   // Updates the specified BackendService resource with the data included in the request. For more information, see Backend services overview.
-  rpc Update(UpdateBackendServiceRequest) returns (Operation) {
+  rpc Update(UpdateBackendServiceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       put: "/compute/v1/projects/{project}/global/backendServices/{backend_service}"
       body: "backend_service_resource"
@@ -27360,7 +27437,11 @@ service Disks {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Adds existing resource policies to a disk. You can only add one policy which will be applied to this disk for scheduling snapshot creation.
-  rpc AddResourcePolicies(AddResourcePoliciesDiskRequest) returns (Operation) {
+  rpc AddResourcePolicies(AddResourcePoliciesDiskRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/disks/{disk}/addResourcePolicies"
       body: "disks_add_resource_policies_request_resource"
@@ -27377,7 +27458,11 @@ service Disks {
   }
 
   // Creates a snapshot of a specified persistent disk.
-  rpc CreateSnapshot(CreateSnapshotDiskRequest) returns (Operation) {
+  rpc CreateSnapshot(CreateSnapshotDiskRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/disks/{disk}/createSnapshot"
       body: "snapshot_resource"
@@ -27386,7 +27471,11 @@ service Disks {
   }
 
   // Deletes the specified persistent disk. Deleting a disk removes its data permanently and is irreversible. However, deleting a disk does not delete any snapshots previously made from the disk. You must separately delete snapshots.
-  rpc Delete(DeleteDiskRequest) returns (Operation) {
+  rpc Delete(DeleteDiskRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/zones/{zone}/disks/{disk}"
     };
@@ -27410,7 +27499,11 @@ service Disks {
   }
 
   // Creates a persistent disk in the specified project using the data in the request. You can create a disk from a source (sourceImage, sourceSnapshot, or sourceDisk) or create an empty 500 GB data disk by omitting all properties. You can also create a disk that is larger than the default size by specifying the sizeGb property.
-  rpc Insert(InsertDiskRequest) returns (Operation) {
+  rpc Insert(InsertDiskRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/disks"
       body: "disk_resource"
@@ -27427,7 +27520,11 @@ service Disks {
   }
 
   // Removes resource policies from a disk.
-  rpc RemoveResourcePolicies(RemoveResourcePoliciesDiskRequest) returns (Operation) {
+  rpc RemoveResourcePolicies(RemoveResourcePoliciesDiskRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/disks/{disk}/removeResourcePolicies"
       body: "disks_remove_resource_policies_request_resource"
@@ -27436,7 +27533,11 @@ service Disks {
   }
 
   // Resizes the specified persistent disk. You can only increase the size of the disk.
-  rpc Resize(ResizeDiskRequest) returns (Operation) {
+  rpc Resize(ResizeDiskRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/disks/{disk}/resize"
       body: "disks_resize_request_resource"
@@ -27454,7 +27555,11 @@ service Disks {
   }
 
   // Sets the labels on a disk. To learn more about labels, read the Labeling Resources documentation.
-  rpc SetLabels(SetLabelsDiskRequest) returns (Operation) {
+  rpc SetLabels(SetLabelsDiskRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/disks/{resource}/setLabels"
       body: "zone_set_labels_request_resource"
@@ -27483,7 +27588,11 @@ service ExternalVpnGateways {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified externalVpnGateway.
-  rpc Delete(DeleteExternalVpnGatewayRequest) returns (Operation) {
+  rpc Delete(DeleteExternalVpnGatewayRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/externalVpnGateways/{external_vpn_gateway}"
     };
@@ -27499,7 +27608,11 @@ service ExternalVpnGateways {
   }
 
   // Creates a ExternalVpnGateway in the specified project using the data included in the request.
-  rpc Insert(InsertExternalVpnGatewayRequest) returns (Operation) {
+  rpc Insert(InsertExternalVpnGatewayRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/externalVpnGateways"
       body: "external_vpn_gateway_resource"
@@ -27516,7 +27629,11 @@ service ExternalVpnGateways {
   }
 
   // Sets the labels on an ExternalVpnGateway. To learn more about labels, read the Labeling Resources documentation.
-  rpc SetLabels(SetLabelsExternalVpnGatewayRequest) returns (Operation) {
+  rpc SetLabels(SetLabelsExternalVpnGatewayRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/externalVpnGateways/{resource}/setLabels"
       body: "global_set_labels_request_resource"
@@ -27545,7 +27662,11 @@ service FirewallPolicies {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Inserts an association for the specified firewall policy.
-  rpc AddAssociation(AddAssociationFirewallPolicyRequest) returns (Operation) {
+  rpc AddAssociation(AddAssociationFirewallPolicyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/locations/global/firewallPolicies/{firewall_policy}/addAssociation"
       body: "firewall_policy_association_resource"
@@ -27554,7 +27675,11 @@ service FirewallPolicies {
   }
 
   // Inserts a rule into a firewall policy.
-  rpc AddRule(AddRuleFirewallPolicyRequest) returns (Operation) {
+  rpc AddRule(AddRuleFirewallPolicyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/locations/global/firewallPolicies/{firewall_policy}/addRule"
       body: "firewall_policy_rule_resource"
@@ -27563,7 +27688,11 @@ service FirewallPolicies {
   }
 
   // Copies rules to the specified firewall policy.
-  rpc CloneRules(CloneRulesFirewallPolicyRequest) returns (Operation) {
+  rpc CloneRules(CloneRulesFirewallPolicyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/locations/global/firewallPolicies/{firewall_policy}/cloneRules"
     };
@@ -27571,7 +27700,11 @@ service FirewallPolicies {
   }
 
   // Deletes the specified policy.
-  rpc Delete(DeleteFirewallPolicyRequest) returns (Operation) {
+  rpc Delete(DeleteFirewallPolicyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/locations/global/firewallPolicies/{firewall_policy}"
     };
@@ -27611,7 +27744,11 @@ service FirewallPolicies {
   }
 
   // Creates a new policy in the specified project using the data included in the request.
-  rpc Insert(InsertFirewallPolicyRequest) returns (Operation) {
+  rpc Insert(InsertFirewallPolicyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/locations/global/firewallPolicies"
       body: "firewall_policy_resource"
@@ -27636,7 +27773,11 @@ service FirewallPolicies {
   }
 
   // Moves the specified firewall policy.
-  rpc Move(MoveFirewallPolicyRequest) returns (Operation) {
+  rpc Move(MoveFirewallPolicyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/locations/global/firewallPolicies/{firewall_policy}/move"
     };
@@ -27644,7 +27785,11 @@ service FirewallPolicies {
   }
 
   // Patches the specified policy with the data included in the request.
-  rpc Patch(PatchFirewallPolicyRequest) returns (Operation) {
+  rpc Patch(PatchFirewallPolicyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/locations/global/firewallPolicies/{firewall_policy}"
       body: "firewall_policy_resource"
@@ -27653,7 +27798,11 @@ service FirewallPolicies {
   }
 
   // Patches a rule of the specified priority.
-  rpc PatchRule(PatchRuleFirewallPolicyRequest) returns (Operation) {
+  rpc PatchRule(PatchRuleFirewallPolicyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/locations/global/firewallPolicies/{firewall_policy}/patchRule"
       body: "firewall_policy_rule_resource"
@@ -27662,7 +27811,11 @@ service FirewallPolicies {
   }
 
   // Removes an association for the specified firewall policy.
-  rpc RemoveAssociation(RemoveAssociationFirewallPolicyRequest) returns (Operation) {
+  rpc RemoveAssociation(RemoveAssociationFirewallPolicyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/locations/global/firewallPolicies/{firewall_policy}/removeAssociation"
     };
@@ -27670,7 +27823,11 @@ service FirewallPolicies {
   }
 
   // Deletes a rule of the specified priority.
-  rpc RemoveRule(RemoveRuleFirewallPolicyRequest) returns (Operation) {
+  rpc RemoveRule(RemoveRuleFirewallPolicyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/locations/global/firewallPolicies/{firewall_policy}/removeRule"
     };
@@ -27707,7 +27864,11 @@ service Firewalls {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified firewall.
-  rpc Delete(DeleteFirewallRequest) returns (Operation) {
+  rpc Delete(DeleteFirewallRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/firewalls/{firewall}"
     };
@@ -27723,7 +27884,11 @@ service Firewalls {
   }
 
   // Creates a firewall rule in the specified project using the data included in the request.
-  rpc Insert(InsertFirewallRequest) returns (Operation) {
+  rpc Insert(InsertFirewallRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/firewalls"
       body: "firewall_resource"
@@ -27740,7 +27905,11 @@ service Firewalls {
   }
 
   // Updates the specified firewall rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
-  rpc Patch(PatchFirewallRequest) returns (Operation) {
+  rpc Patch(PatchFirewallRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/global/firewalls/{firewall}"
       body: "firewall_resource"
@@ -27749,7 +27918,11 @@ service Firewalls {
   }
 
   // Updates the specified firewall rule with the data included in the request. Note that all fields will be updated if using PUT, even fields that are not specified. To update individual fields, please use PATCH instead.
-  rpc Update(UpdateFirewallRequest) returns (Operation) {
+  rpc Update(UpdateFirewallRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       put: "/compute/v1/projects/{project}/global/firewalls/{firewall}"
       body: "firewall_resource"
@@ -27777,7 +27950,11 @@ service ForwardingRules {
   }
 
   // Deletes the specified ForwardingRule resource.
-  rpc Delete(DeleteForwardingRuleRequest) returns (Operation) {
+  rpc Delete(DeleteForwardingRuleRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/forwardingRules/{forwarding_rule}"
     };
@@ -27793,7 +27970,11 @@ service ForwardingRules {
   }
 
   // Creates a ForwardingRule resource in the specified project and region using the data included in the request.
-  rpc Insert(InsertForwardingRuleRequest) returns (Operation) {
+  rpc Insert(InsertForwardingRuleRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/forwardingRules"
       body: "forwarding_rule_resource"
@@ -27810,7 +27991,11 @@ service ForwardingRules {
   }
 
   // Updates the specified forwarding rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. Currently, you can only patch the network_tier field.
-  rpc Patch(PatchForwardingRuleRequest) returns (Operation) {
+  rpc Patch(PatchForwardingRuleRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/regions/{region}/forwardingRules/{forwarding_rule}"
       body: "forwarding_rule_resource"
@@ -27819,7 +28004,11 @@ service ForwardingRules {
   }
 
   // Sets the labels on the specified resource. To learn more about labels, read the Labeling Resources documentation.
-  rpc SetLabels(SetLabelsForwardingRuleRequest) returns (Operation) {
+  rpc SetLabels(SetLabelsForwardingRuleRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/forwardingRules/{resource}/setLabels"
       body: "region_set_labels_request_resource"
@@ -27828,7 +28017,11 @@ service ForwardingRules {
   }
 
   // Changes target URL for forwarding rule. The new target should be of the same type as the old target.
-  rpc SetTarget(SetTargetForwardingRuleRequest) returns (Operation) {
+  rpc SetTarget(SetTargetForwardingRuleRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/forwardingRules/{forwarding_rule}/setTarget"
       body: "target_reference_resource"
@@ -27848,7 +28041,11 @@ service GlobalAddresses {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified address resource.
-  rpc Delete(DeleteGlobalAddressRequest) returns (Operation) {
+  rpc Delete(DeleteGlobalAddressRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/addresses/{address}"
     };
@@ -27864,7 +28061,11 @@ service GlobalAddresses {
   }
 
   // Creates an address resource in the specified project by using the data included in the request.
-  rpc Insert(InsertGlobalAddressRequest) returns (Operation) {
+  rpc Insert(InsertGlobalAddressRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/addresses"
       body: "address_resource"
@@ -27892,7 +28093,11 @@ service GlobalForwardingRules {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified GlobalForwardingRule resource.
-  rpc Delete(DeleteGlobalForwardingRuleRequest) returns (Operation) {
+  rpc Delete(DeleteGlobalForwardingRuleRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/forwardingRules/{forwarding_rule}"
     };
@@ -27908,7 +28113,11 @@ service GlobalForwardingRules {
   }
 
   // Creates a GlobalForwardingRule resource in the specified project using the data included in the request.
-  rpc Insert(InsertGlobalForwardingRuleRequest) returns (Operation) {
+  rpc Insert(InsertGlobalForwardingRuleRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/forwardingRules"
       body: "forwarding_rule_resource"
@@ -27925,7 +28134,11 @@ service GlobalForwardingRules {
   }
 
   // Updates the specified forwarding rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. Currently, you can only patch the network_tier field.
-  rpc Patch(PatchGlobalForwardingRuleRequest) returns (Operation) {
+  rpc Patch(PatchGlobalForwardingRuleRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/global/forwardingRules/{forwarding_rule}"
       body: "forwarding_rule_resource"
@@ -27934,7 +28147,11 @@ service GlobalForwardingRules {
   }
 
   // Sets the labels on the specified resource. To learn more about labels, read the Labeling Resources documentation.
-  rpc SetLabels(SetLabelsGlobalForwardingRuleRequest) returns (Operation) {
+  rpc SetLabels(SetLabelsGlobalForwardingRuleRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/forwardingRules/{resource}/setLabels"
       body: "global_set_labels_request_resource"
@@ -27943,7 +28160,11 @@ service GlobalForwardingRules {
   }
 
   // Changes target URL for the GlobalForwardingRule resource. The new target should be of the same type as the old target.
-  rpc SetTarget(SetTargetGlobalForwardingRuleRequest) returns (Operation) {
+  rpc SetTarget(SetTargetGlobalForwardingRuleRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/forwardingRules/{forwarding_rule}/setTarget"
       body: "target_reference_resource"
@@ -27963,7 +28184,11 @@ service GlobalNetworkEndpointGroups {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Attach a network endpoint to the specified network endpoint group.
-  rpc AttachNetworkEndpoints(AttachNetworkEndpointsGlobalNetworkEndpointGroupRequest) returns (Operation) {
+  rpc AttachNetworkEndpoints(AttachNetworkEndpointsGlobalNetworkEndpointGroupRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/networkEndpointGroups/{network_endpoint_group}/attachNetworkEndpoints"
       body: "global_network_endpoint_groups_attach_endpoints_request_resource"
@@ -27972,7 +28197,11 @@ service GlobalNetworkEndpointGroups {
   }
 
   // Deletes the specified network endpoint group.Note that the NEG cannot be deleted if there are backend services referencing it.
-  rpc Delete(DeleteGlobalNetworkEndpointGroupRequest) returns (Operation) {
+  rpc Delete(DeleteGlobalNetworkEndpointGroupRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/networkEndpointGroups/{network_endpoint_group}"
     };
@@ -27980,7 +28209,11 @@ service GlobalNetworkEndpointGroups {
   }
 
   // Detach the network endpoint from the specified network endpoint group.
-  rpc DetachNetworkEndpoints(DetachNetworkEndpointsGlobalNetworkEndpointGroupRequest) returns (Operation) {
+  rpc DetachNetworkEndpoints(DetachNetworkEndpointsGlobalNetworkEndpointGroupRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/networkEndpointGroups/{network_endpoint_group}/detachNetworkEndpoints"
       body: "global_network_endpoint_groups_detach_endpoints_request_resource"
@@ -27997,7 +28230,11 @@ service GlobalNetworkEndpointGroups {
   }
 
   // Creates a network endpoint group in the specified project using the parameters that are included in the request.
-  rpc Insert(InsertGlobalNetworkEndpointGroupRequest) returns (Operation) {
+  rpc Insert(InsertGlobalNetworkEndpointGroupRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/networkEndpointGroups"
       body: "network_endpoint_group_resource"
@@ -28123,7 +28360,11 @@ service GlobalPublicDelegatedPrefixes {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified global PublicDelegatedPrefix.
-  rpc Delete(DeleteGlobalPublicDelegatedPrefixeRequest) returns (Operation) {
+  rpc Delete(DeleteGlobalPublicDelegatedPrefixeRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/publicDelegatedPrefixes/{public_delegated_prefix}"
     };
@@ -28139,7 +28380,11 @@ service GlobalPublicDelegatedPrefixes {
   }
 
   // Creates a global PublicDelegatedPrefix in the specified project using the parameters that are included in the request.
-  rpc Insert(InsertGlobalPublicDelegatedPrefixeRequest) returns (Operation) {
+  rpc Insert(InsertGlobalPublicDelegatedPrefixeRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/publicDelegatedPrefixes"
       body: "public_delegated_prefix_resource"
@@ -28156,7 +28401,11 @@ service GlobalPublicDelegatedPrefixes {
   }
 
   // Patches the specified global PublicDelegatedPrefix resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.
-  rpc Patch(PatchGlobalPublicDelegatedPrefixeRequest) returns (Operation) {
+  rpc Patch(PatchGlobalPublicDelegatedPrefixeRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/global/publicDelegatedPrefixes/{public_delegated_prefix}"
       body: "public_delegated_prefix_resource"
@@ -28184,7 +28433,11 @@ service HealthChecks {
   }
 
   // Deletes the specified HealthCheck resource.
-  rpc Delete(DeleteHealthCheckRequest) returns (Operation) {
+  rpc Delete(DeleteHealthCheckRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/healthChecks/{health_check}"
     };
@@ -28200,7 +28453,11 @@ service HealthChecks {
   }
 
   // Creates a HealthCheck resource in the specified project using the data included in the request.
-  rpc Insert(InsertHealthCheckRequest) returns (Operation) {
+  rpc Insert(InsertHealthCheckRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/healthChecks"
       body: "health_check_resource"
@@ -28217,7 +28474,11 @@ service HealthChecks {
   }
 
   // Updates a HealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
-  rpc Patch(PatchHealthCheckRequest) returns (Operation) {
+  rpc Patch(PatchHealthCheckRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/global/healthChecks/{health_check}"
       body: "health_check_resource"
@@ -28226,7 +28487,11 @@ service HealthChecks {
   }
 
   // Updates a HealthCheck resource in the specified project using the data included in the request.
-  rpc Update(UpdateHealthCheckRequest) returns (Operation) {
+  rpc Update(UpdateHealthCheckRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       put: "/compute/v1/projects/{project}/global/healthChecks/{health_check}"
       body: "health_check_resource"
@@ -28246,7 +28511,11 @@ service Images {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified image.
-  rpc Delete(DeleteImageRequest) returns (Operation) {
+  rpc Delete(DeleteImageRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/images/{image}"
     };
@@ -28256,7 +28525,11 @@ service Images {
   // Sets the deprecation status of an image.
   //
   // If an empty request body is given, clears the deprecation status instead.
-  rpc Deprecate(DeprecateImageRequest) returns (Operation) {
+  rpc Deprecate(DeprecateImageRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/images/{image}/deprecate"
       body: "deprecation_status_resource"
@@ -28289,7 +28562,11 @@ service Images {
   }
 
   // Creates an image in the specified project using the data included in the request.
-  rpc Insert(InsertImageRequest) returns (Operation) {
+  rpc Insert(InsertImageRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/images"
       body: "image_resource"
@@ -28306,7 +28583,11 @@ service Images {
   }
 
   // Patches the specified image with the data included in the request. Only the following fields can be modified: family, description, deprecation status.
-  rpc Patch(PatchImageRequest) returns (Operation) {
+  rpc Patch(PatchImageRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/global/images/{image}"
       body: "image_resource"
@@ -28324,7 +28605,11 @@ service Images {
   }
 
   // Sets the labels on an image. To learn more about labels, read the Labeling Resources documentation.
-  rpc SetLabels(SetLabelsImageRequest) returns (Operation) {
+  rpc SetLabels(SetLabelsImageRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/images/{resource}/setLabels"
       body: "global_set_labels_request_resource"
@@ -28357,7 +28642,11 @@ service InstanceGroupManagers {
   // If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
   //
   // You can specify a maximum of 1000 instances with this method per request.
-  rpc AbandonInstances(AbandonInstancesInstanceGroupManagerRequest) returns (Operation) {
+  rpc AbandonInstances(AbandonInstancesInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instance_group_manager}/abandonInstances"
       body: "instance_group_managers_abandon_instances_request_resource"
@@ -28374,7 +28663,11 @@ service InstanceGroupManagers {
   }
 
   // Applies changes to selected instances on the managed instance group. This method can be used to apply new overrides and/or new versions.
-  rpc ApplyUpdatesToInstances(ApplyUpdatesToInstancesInstanceGroupManagerRequest) returns (Operation) {
+  rpc ApplyUpdatesToInstances(ApplyUpdatesToInstancesInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instance_group_manager}/applyUpdatesToInstances"
       body: "instance_group_managers_apply_updates_request_resource"
@@ -28383,7 +28676,11 @@ service InstanceGroupManagers {
   }
 
   // Creates instances with per-instance configs in this managed instance group. Instances are created using the current instance template. The create instances operation is marked DONE if the createInstances request is successful. The underlying actions take additional time. You must separately verify the status of the creating or actions with the listmanagedinstances method.
-  rpc CreateInstances(CreateInstancesInstanceGroupManagerRequest) returns (Operation) {
+  rpc CreateInstances(CreateInstancesInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instance_group_manager}/createInstances"
       body: "instance_group_managers_create_instances_request_resource"
@@ -28392,7 +28689,11 @@ service InstanceGroupManagers {
   }
 
   // Deletes the specified managed instance group and all of the instances in that group. Note that the instance group must not belong to a backend service. Read  Deleting an instance group for more information.
-  rpc Delete(DeleteInstanceGroupManagerRequest) returns (Operation) {
+  rpc Delete(DeleteInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instance_group_manager}"
     };
@@ -28404,7 +28705,11 @@ service InstanceGroupManagers {
   // If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
   //
   // You can specify a maximum of 1000 instances with this method per request.
-  rpc DeleteInstances(DeleteInstancesInstanceGroupManagerRequest) returns (Operation) {
+  rpc DeleteInstances(DeleteInstancesInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instance_group_manager}/deleteInstances"
       body: "instance_group_managers_delete_instances_request_resource"
@@ -28413,7 +28718,11 @@ service InstanceGroupManagers {
   }
 
   // Deletes selected per-instance configs for the managed instance group.
-  rpc DeletePerInstanceConfigs(DeletePerInstanceConfigsInstanceGroupManagerRequest) returns (Operation) {
+  rpc DeletePerInstanceConfigs(DeletePerInstanceConfigsInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instance_group_manager}/deletePerInstanceConfigs"
       body: "instance_group_managers_delete_per_instance_configs_req_resource"
@@ -28432,7 +28741,11 @@ service InstanceGroupManagers {
   // Creates a managed instance group using the information that you specify in the request. After the group is created, instances in the group are created using the specified instance template. This operation is marked as DONE when the group is created even if the instances in the group have not yet been created. You must separately verify the status of the individual instances with the listmanagedinstances method.
   //
   // A managed instance group can have up to 1000 VM instances per group. Please contact Cloud Support if you need an increase in this limit.
-  rpc Insert(InsertInstanceGroupManagerRequest) returns (Operation) {
+  rpc Insert(InsertInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers"
       body: "instance_group_manager_resource"
@@ -28473,7 +28786,11 @@ service InstanceGroupManagers {
   }
 
   // Updates a managed instance group using the information that you specify in the request. This operation is marked as DONE when the group is patched even if the instances in the group are still in the process of being patched. You must separately verify the status of the individual instances with the listManagedInstances method. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
-  rpc Patch(PatchInstanceGroupManagerRequest) returns (Operation) {
+  rpc Patch(PatchInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instance_group_manager}"
       body: "instance_group_manager_resource"
@@ -28482,7 +28799,11 @@ service InstanceGroupManagers {
   }
 
   // Inserts or patches per-instance configs for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch.
-  rpc PatchPerInstanceConfigs(PatchPerInstanceConfigsInstanceGroupManagerRequest) returns (Operation) {
+  rpc PatchPerInstanceConfigs(PatchPerInstanceConfigsInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instance_group_manager}/patchPerInstanceConfigs"
       body: "instance_group_managers_patch_per_instance_configs_req_resource"
@@ -28495,7 +28816,11 @@ service InstanceGroupManagers {
   // If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
   //
   // You can specify a maximum of 1000 instances with this method per request.
-  rpc RecreateInstances(RecreateInstancesInstanceGroupManagerRequest) returns (Operation) {
+  rpc RecreateInstances(RecreateInstancesInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instance_group_manager}/recreateInstances"
       body: "instance_group_managers_recreate_instances_request_resource"
@@ -28512,7 +28837,11 @@ service InstanceGroupManagers {
   // This list is subject to change.
   //
   // If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
-  rpc Resize(ResizeInstanceGroupManagerRequest) returns (Operation) {
+  rpc Resize(ResizeInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instance_group_manager}/resize"
     };
@@ -28520,7 +28849,11 @@ service InstanceGroupManagers {
   }
 
   // Specifies the instance template to use when creating new instances in this group. The templates for existing instances in the group do not change unless you run recreateInstances, run applyUpdatesToInstances, or set the group's updatePolicy.type to PROACTIVE.
-  rpc SetInstanceTemplate(SetInstanceTemplateInstanceGroupManagerRequest) returns (Operation) {
+  rpc SetInstanceTemplate(SetInstanceTemplateInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instance_group_manager}/setInstanceTemplate"
       body: "instance_group_managers_set_instance_template_request_resource"
@@ -28529,7 +28862,11 @@ service InstanceGroupManagers {
   }
 
   // Modifies the target pools to which all instances in this managed instance group are assigned. The target pools automatically apply to all of the instances in the managed instance group. This operation is marked DONE when you make the request even if the instances have not yet been added to their target pools. The change might take some time to apply to all of the instances in the group depending on the size of the group.
-  rpc SetTargetPools(SetTargetPoolsInstanceGroupManagerRequest) returns (Operation) {
+  rpc SetTargetPools(SetTargetPoolsInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instance_group_manager}/setTargetPools"
       body: "instance_group_managers_set_target_pools_request_resource"
@@ -28538,7 +28875,11 @@ service InstanceGroupManagers {
   }
 
   // Inserts or updates per-instance configs for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch.
-  rpc UpdatePerInstanceConfigs(UpdatePerInstanceConfigsInstanceGroupManagerRequest) returns (Operation) {
+  rpc UpdatePerInstanceConfigs(UpdatePerInstanceConfigsInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instance_group_manager}/updatePerInstanceConfigs"
       body: "instance_group_managers_update_per_instance_configs_req_resource"
@@ -28558,7 +28899,11 @@ service InstanceGroups {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Adds a list of instances to the specified instance group. All of the instances in the instance group must be in the same network/subnetwork. Read  Adding instances for more information.
-  rpc AddInstances(AddInstancesInstanceGroupRequest) returns (Operation) {
+  rpc AddInstances(AddInstancesInstanceGroupRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instanceGroups/{instance_group}/addInstances"
       body: "instance_groups_add_instances_request_resource"
@@ -28575,7 +28920,11 @@ service InstanceGroups {
   }
 
   // Deletes the specified instance group. The instances in the group are not deleted. Note that instance group must not belong to a backend service. Read  Deleting an instance group for more information.
-  rpc Delete(DeleteInstanceGroupRequest) returns (Operation) {
+  rpc Delete(DeleteInstanceGroupRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/zones/{zone}/instanceGroups/{instance_group}"
     };
@@ -28593,7 +28942,11 @@ service InstanceGroups {
   }
 
   // Creates an instance group in the specified project using the parameters that are included in the request.
-  rpc Insert(InsertInstanceGroupRequest) returns (Operation) {
+  rpc Insert(InsertInstanceGroupRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instanceGroups"
       body: "instance_group_resource"
@@ -28623,7 +28976,11 @@ service InstanceGroups {
   // Removes one or more instances from the specified instance group, but does not delete those instances.
   //
   // If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration before the VM instance is removed or deleted.
-  rpc RemoveInstances(RemoveInstancesInstanceGroupRequest) returns (Operation) {
+  rpc RemoveInstances(RemoveInstancesInstanceGroupRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instanceGroups/{instance_group}/removeInstances"
       body: "instance_groups_remove_instances_request_resource"
@@ -28632,7 +28989,11 @@ service InstanceGroups {
   }
 
   // Sets the named ports for the specified instance group.
-  rpc SetNamedPorts(SetNamedPortsInstanceGroupRequest) returns (Operation) {
+  rpc SetNamedPorts(SetNamedPortsInstanceGroupRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instanceGroups/{instance_group}/setNamedPorts"
       body: "instance_groups_set_named_ports_request_resource"
@@ -28652,7 +29013,11 @@ service InstanceTemplates {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified instance template. Deleting an instance template is permanent and cannot be undone. It is not possible to delete templates that are already in use by a managed instance group.
-  rpc Delete(DeleteInstanceTemplateRequest) returns (Operation) {
+  rpc Delete(DeleteInstanceTemplateRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/instanceTemplates/{instance_template}"
     };
@@ -28676,7 +29041,11 @@ service InstanceTemplates {
   }
 
   // Creates an instance template in the specified project using the data that is included in the request. If you are creating a new template to update an existing instance group, your new instance template must use the same network or, if applicable, the same subnetwork as the original template.
-  rpc Insert(InsertInstanceTemplateRequest) returns (Operation) {
+  rpc Insert(InsertInstanceTemplateRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/instanceTemplates"
       body: "instance_template_resource"
@@ -28722,7 +29091,11 @@ service Instances {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Adds an access config to an instance's network interface.
-  rpc AddAccessConfig(AddAccessConfigInstanceRequest) returns (Operation) {
+  rpc AddAccessConfig(AddAccessConfigInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/addAccessConfig"
       body: "access_config_resource"
@@ -28731,7 +29104,11 @@ service Instances {
   }
 
   // Adds existing resource policies to an instance. You can only add one policy right now which will be applied to this instance for scheduling live migrations.
-  rpc AddResourcePolicies(AddResourcePoliciesInstanceRequest) returns (Operation) {
+  rpc AddResourcePolicies(AddResourcePoliciesInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/addResourcePolicies"
       body: "instances_add_resource_policies_request_resource"
@@ -28748,7 +29125,11 @@ service Instances {
   }
 
   // Attaches an existing Disk resource to an instance. You must first create the disk before you can attach it. It is not possible to create and attach a disk at the same time. For more information, read Adding a persistent disk to your instance.
-  rpc AttachDisk(AttachDiskInstanceRequest) returns (Operation) {
+  rpc AttachDisk(AttachDiskInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/attachDisk"
       body: "attached_disk_resource"
@@ -28757,7 +29138,11 @@ service Instances {
   }
 
   // Creates multiple instances. Count specifies the number of instances to create.
-  rpc BulkInsert(BulkInsertInstanceRequest) returns (Operation) {
+  rpc BulkInsert(BulkInsertInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances/bulkInsert"
       body: "bulk_insert_instance_resource_resource"
@@ -28766,7 +29151,11 @@ service Instances {
   }
 
   // Deletes the specified Instance resource. For more information, see Deleting an instance.
-  rpc Delete(DeleteInstanceRequest) returns (Operation) {
+  rpc Delete(DeleteInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}"
     };
@@ -28774,7 +29163,11 @@ service Instances {
   }
 
   // Deletes an access config from an instance's network interface.
-  rpc DeleteAccessConfig(DeleteAccessConfigInstanceRequest) returns (Operation) {
+  rpc DeleteAccessConfig(DeleteAccessConfigInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/deleteAccessConfig"
     };
@@ -28782,7 +29175,11 @@ service Instances {
   }
 
   // Detaches a disk from an instance.
-  rpc DetachDisk(DetachDiskInstanceRequest) returns (Operation) {
+  rpc DetachDisk(DetachDiskInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/detachDisk"
     };
@@ -28846,7 +29243,11 @@ service Instances {
   }
 
   // Creates an instance resource in the specified project using the data included in the request.
-  rpc Insert(InsertInstanceRequest) returns (Operation) {
+  rpc Insert(InsertInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances"
       body: "instance_resource"
@@ -28871,7 +29272,11 @@ service Instances {
   }
 
   // Removes resource policies from an instance.
-  rpc RemoveResourcePolicies(RemoveResourcePoliciesInstanceRequest) returns (Operation) {
+  rpc RemoveResourcePolicies(RemoveResourcePoliciesInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/removeResourcePolicies"
       body: "instances_remove_resource_policies_request_resource"
@@ -28880,7 +29285,11 @@ service Instances {
   }
 
   // Performs a reset on the instance. This is a hard reset the VM does not do a graceful shutdown. For more information, see Resetting an instance.
-  rpc Reset(ResetInstanceRequest) returns (Operation) {
+  rpc Reset(ResetInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/reset"
     };
@@ -28888,7 +29297,11 @@ service Instances {
   }
 
   // Sets deletion protection on the instance.
-  rpc SetDeletionProtection(SetDeletionProtectionInstanceRequest) returns (Operation) {
+  rpc SetDeletionProtection(SetDeletionProtectionInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances/{resource}/setDeletionProtection"
     };
@@ -28896,7 +29309,11 @@ service Instances {
   }
 
   // Sets the auto-delete flag for a disk attached to an instance.
-  rpc SetDiskAutoDelete(SetDiskAutoDeleteInstanceRequest) returns (Operation) {
+  rpc SetDiskAutoDelete(SetDiskAutoDeleteInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/setDiskAutoDelete"
     };
@@ -28913,7 +29330,11 @@ service Instances {
   }
 
   // Sets labels on an instance. To learn more about labels, read the Labeling Resources documentation.
-  rpc SetLabels(SetLabelsInstanceRequest) returns (Operation) {
+  rpc SetLabels(SetLabelsInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/setLabels"
       body: "instances_set_labels_request_resource"
@@ -28922,7 +29343,11 @@ service Instances {
   }
 
   // Changes the number and/or type of accelerator for a stopped instance to the values specified in the request.
-  rpc SetMachineResources(SetMachineResourcesInstanceRequest) returns (Operation) {
+  rpc SetMachineResources(SetMachineResourcesInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/setMachineResources"
       body: "instances_set_machine_resources_request_resource"
@@ -28931,7 +29356,11 @@ service Instances {
   }
 
   // Changes the machine type for a stopped instance to the machine type specified in the request.
-  rpc SetMachineType(SetMachineTypeInstanceRequest) returns (Operation) {
+  rpc SetMachineType(SetMachineTypeInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/setMachineType"
       body: "instances_set_machine_type_request_resource"
@@ -28940,7 +29369,11 @@ service Instances {
   }
 
   // Sets metadata for the specified instance to the data included in the request.
-  rpc SetMetadata(SetMetadataInstanceRequest) returns (Operation) {
+  rpc SetMetadata(SetMetadataInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/setMetadata"
       body: "metadata_resource"
@@ -28949,7 +29382,11 @@ service Instances {
   }
 
   // Changes the minimum CPU platform that this instance should use. This method can only be called on a stopped instance. For more information, read Specifying a Minimum CPU Platform.
-  rpc SetMinCpuPlatform(SetMinCpuPlatformInstanceRequest) returns (Operation) {
+  rpc SetMinCpuPlatform(SetMinCpuPlatformInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/setMinCpuPlatform"
       body: "instances_set_min_cpu_platform_request_resource"
@@ -28958,7 +29395,11 @@ service Instances {
   }
 
   // Sets an instance's scheduling options. You can only call this method on a stopped instance, that is, a VM instance that is in a `TERMINATED` state. See Instance Life Cycle for more information on the possible instance states.
-  rpc SetScheduling(SetSchedulingInstanceRequest) returns (Operation) {
+  rpc SetScheduling(SetSchedulingInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/setScheduling"
       body: "scheduling_resource"
@@ -28967,7 +29408,11 @@ service Instances {
   }
 
   // Sets the service account on the instance. For more information, read Changing the service account and access scopes for an instance.
-  rpc SetServiceAccount(SetServiceAccountInstanceRequest) returns (Operation) {
+  rpc SetServiceAccount(SetServiceAccountInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/setServiceAccount"
       body: "instances_set_service_account_request_resource"
@@ -28976,7 +29421,11 @@ service Instances {
   }
 
   // Sets the Shielded Instance integrity policy for an instance. You can only use this method on a running instance. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
-  rpc SetShieldedInstanceIntegrityPolicy(SetShieldedInstanceIntegrityPolicyInstanceRequest) returns (Operation) {
+  rpc SetShieldedInstanceIntegrityPolicy(SetShieldedInstanceIntegrityPolicyInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/setShieldedInstanceIntegrityPolicy"
       body: "shielded_instance_integrity_policy_resource"
@@ -28985,7 +29434,11 @@ service Instances {
   }
 
   // Sets network tags for the specified instance to the data included in the request.
-  rpc SetTags(SetTagsInstanceRequest) returns (Operation) {
+  rpc SetTags(SetTagsInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/setTags"
       body: "tags_resource"
@@ -28994,7 +29447,11 @@ service Instances {
   }
 
   // Simulates a maintenance event on the instance.
-  rpc SimulateMaintenanceEvent(SimulateMaintenanceEventInstanceRequest) returns (Operation) {
+  rpc SimulateMaintenanceEvent(SimulateMaintenanceEventInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/simulateMaintenanceEvent"
     };
@@ -29002,7 +29459,11 @@ service Instances {
   }
 
   // Starts an instance that was stopped using the instances().stop method. For more information, see Restart an instance.
-  rpc Start(StartInstanceRequest) returns (Operation) {
+  rpc Start(StartInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/start"
     };
@@ -29010,7 +29471,11 @@ service Instances {
   }
 
   // Starts an instance that was stopped using the instances().stop method. For more information, see Restart an instance.
-  rpc StartWithEncryptionKey(StartWithEncryptionKeyInstanceRequest) returns (Operation) {
+  rpc StartWithEncryptionKey(StartWithEncryptionKeyInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/startWithEncryptionKey"
       body: "instances_start_with_encryption_key_request_resource"
@@ -29019,7 +29484,11 @@ service Instances {
   }
 
   // Stops a running instance, shutting it down cleanly, and allows you to restart the instance at a later time. Stopped instances do not incur VM usage charges while they are stopped. However, resources that the VM is using, such as persistent disks and static IP addresses, will continue to be charged until they are deleted. For more information, see Stopping an instance.
-  rpc Stop(StopInstanceRequest) returns (Operation) {
+  rpc Stop(StopInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/stop"
     };
@@ -29036,7 +29505,11 @@ service Instances {
   }
 
   // Updates an instance only if the necessary resources are available. This method can update only a specific set of instance properties. See  Updating a running instance for a list of updatable instance properties.
-  rpc Update(UpdateInstanceRequest) returns (Operation) {
+  rpc Update(UpdateInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       put: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}"
       body: "instance_resource"
@@ -29045,7 +29518,11 @@ service Instances {
   }
 
   // Updates the specified access config from an instance's network interface with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
-  rpc UpdateAccessConfig(UpdateAccessConfigInstanceRequest) returns (Operation) {
+  rpc UpdateAccessConfig(UpdateAccessConfigInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/updateAccessConfig"
       body: "access_config_resource"
@@ -29054,7 +29531,11 @@ service Instances {
   }
 
   // Updates the Display config for a VM instance. You can only use this method on a stopped VM instance. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
-  rpc UpdateDisplayDevice(UpdateDisplayDeviceInstanceRequest) returns (Operation) {
+  rpc UpdateDisplayDevice(UpdateDisplayDeviceInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/updateDisplayDevice"
       body: "display_device_resource"
@@ -29063,7 +29544,11 @@ service Instances {
   }
 
   // Updates an instance's network interface. This method can only update an interface's alias IP range and attached network. See Modifying alias IP ranges for an existing instance for instructions on changing alias IP ranges. See Migrating a VM between networks for instructions on migrating an interface. This method follows PATCH semantics.
-  rpc UpdateNetworkInterface(UpdateNetworkInterfaceInstanceRequest) returns (Operation) {
+  rpc UpdateNetworkInterface(UpdateNetworkInterfaceInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/updateNetworkInterface"
       body: "network_interface_resource"
@@ -29072,7 +29557,11 @@ service Instances {
   }
 
   // Updates the Shielded Instance config for an instance. You can only use this method on a stopped instance. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
-  rpc UpdateShieldedInstanceConfig(UpdateShieldedInstanceConfigInstanceRequest) returns (Operation) {
+  rpc UpdateShieldedInstanceConfig(UpdateShieldedInstanceConfigInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/updateShieldedInstanceConfig"
       body: "shielded_instance_config_resource"
@@ -29100,7 +29589,11 @@ service InterconnectAttachments {
   }
 
   // Deletes the specified interconnect attachment.
-  rpc Delete(DeleteInterconnectAttachmentRequest) returns (Operation) {
+  rpc Delete(DeleteInterconnectAttachmentRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/interconnectAttachments/{interconnect_attachment}"
     };
@@ -29116,7 +29609,11 @@ service InterconnectAttachments {
   }
 
   // Creates an InterconnectAttachment in the specified project using the data included in the request.
-  rpc Insert(InsertInterconnectAttachmentRequest) returns (Operation) {
+  rpc Insert(InsertInterconnectAttachmentRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/interconnectAttachments"
       body: "interconnect_attachment_resource"
@@ -29133,7 +29630,11 @@ service InterconnectAttachments {
   }
 
   // Updates the specified interconnect attachment with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
-  rpc Patch(PatchInterconnectAttachmentRequest) returns (Operation) {
+  rpc Patch(PatchInterconnectAttachmentRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/regions/{region}/interconnectAttachments/{interconnect_attachment}"
       body: "interconnect_attachment_resource"
@@ -29181,7 +29682,11 @@ service Interconnects {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified interconnect.
-  rpc Delete(DeleteInterconnectRequest) returns (Operation) {
+  rpc Delete(DeleteInterconnectRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/interconnects/{interconnect}"
     };
@@ -29205,7 +29710,11 @@ service Interconnects {
   }
 
   // Creates a Interconnect in the specified project using the data included in the request.
-  rpc Insert(InsertInterconnectRequest) returns (Operation) {
+  rpc Insert(InsertInterconnectRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/interconnects"
       body: "interconnect_resource"
@@ -29222,7 +29731,11 @@ service Interconnects {
   }
 
   // Updates the specified interconnect with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
-  rpc Patch(PatchInterconnectRequest) returns (Operation) {
+  rpc Patch(PatchInterconnectRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/global/interconnects/{interconnect}"
       body: "interconnect_resource"
@@ -29271,7 +29784,11 @@ service Licenses {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified license.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
-  rpc Delete(DeleteLicenseRequest) returns (Operation) {
+  rpc Delete(DeleteLicenseRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/licenses/{license}"
     };
@@ -29295,7 +29812,11 @@ service Licenses {
   }
 
   // Create a License resource in the specified project.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
-  rpc Insert(InsertLicenseRequest) returns (Operation) {
+  rpc Insert(InsertLicenseRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/licenses"
       body: "license_resource"
@@ -29385,7 +29906,11 @@ service NetworkEndpointGroups {
   }
 
   // Attach a list of network endpoints to the specified network endpoint group.
-  rpc AttachNetworkEndpoints(AttachNetworkEndpointsNetworkEndpointGroupRequest) returns (Operation) {
+  rpc AttachNetworkEndpoints(AttachNetworkEndpointsNetworkEndpointGroupRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/networkEndpointGroups/{network_endpoint_group}/attachNetworkEndpoints"
       body: "network_endpoint_groups_attach_endpoints_request_resource"
@@ -29394,7 +29919,11 @@ service NetworkEndpointGroups {
   }
 
   // Deletes the specified network endpoint group. The network endpoints in the NEG and the VM instances they belong to are not terminated when the NEG is deleted. Note that the NEG cannot be deleted if there are backend services referencing it.
-  rpc Delete(DeleteNetworkEndpointGroupRequest) returns (Operation) {
+  rpc Delete(DeleteNetworkEndpointGroupRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/zones/{zone}/networkEndpointGroups/{network_endpoint_group}"
     };
@@ -29402,7 +29931,11 @@ service NetworkEndpointGroups {
   }
 
   // Detach a list of network endpoints from the specified network endpoint group.
-  rpc DetachNetworkEndpoints(DetachNetworkEndpointsNetworkEndpointGroupRequest) returns (Operation) {
+  rpc DetachNetworkEndpoints(DetachNetworkEndpointsNetworkEndpointGroupRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/networkEndpointGroups/{network_endpoint_group}/detachNetworkEndpoints"
       body: "network_endpoint_groups_detach_endpoints_request_resource"
@@ -29419,7 +29952,11 @@ service NetworkEndpointGroups {
   }
 
   // Creates a network endpoint group in the specified project using the parameters that are included in the request.
-  rpc Insert(InsertNetworkEndpointGroupRequest) returns (Operation) {
+  rpc Insert(InsertNetworkEndpointGroupRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/networkEndpointGroups"
       body: "network_endpoint_group_resource"
@@ -29465,7 +30002,11 @@ service Networks {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Adds a peering to the specified network.
-  rpc AddPeering(AddPeeringNetworkRequest) returns (Operation) {
+  rpc AddPeering(AddPeeringNetworkRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/networks/{network}/addPeering"
       body: "networks_add_peering_request_resource"
@@ -29474,7 +30015,11 @@ service Networks {
   }
 
   // Deletes the specified network.
-  rpc Delete(DeleteNetworkRequest) returns (Operation) {
+  rpc Delete(DeleteNetworkRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/networks/{network}"
     };
@@ -29498,7 +30043,11 @@ service Networks {
   }
 
   // Creates a network in the specified project using the data included in the request.
-  rpc Insert(InsertNetworkRequest) returns (Operation) {
+  rpc Insert(InsertNetworkRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/networks"
       body: "network_resource"
@@ -29523,7 +30072,11 @@ service Networks {
   }
 
   // Patches the specified network with the data included in the request. Only the following fields can be modified: routingConfig.routingMode.
-  rpc Patch(PatchNetworkRequest) returns (Operation) {
+  rpc Patch(PatchNetworkRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/global/networks/{network}"
       body: "network_resource"
@@ -29532,7 +30085,11 @@ service Networks {
   }
 
   // Removes a peering from the specified network.
-  rpc RemovePeering(RemovePeeringNetworkRequest) returns (Operation) {
+  rpc RemovePeering(RemovePeeringNetworkRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/networks/{network}/removePeering"
       body: "networks_remove_peering_request_resource"
@@ -29541,7 +30098,11 @@ service Networks {
   }
 
   // Switches the network mode from auto subnet mode to custom subnet mode.
-  rpc SwitchToCustomMode(SwitchToCustomModeNetworkRequest) returns (Operation) {
+  rpc SwitchToCustomMode(SwitchToCustomModeNetworkRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/networks/{network}/switchToCustomMode"
     };
@@ -29549,7 +30110,11 @@ service Networks {
   }
 
   // Updates the specified network peering with the data included in the request Only the following fields can be modified: NetworkPeering.export_custom_routes, and NetworkPeering.import_custom_routes
-  rpc UpdatePeering(UpdatePeeringNetworkRequest) returns (Operation) {
+  rpc UpdatePeering(UpdatePeeringNetworkRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/global/networks/{network}/updatePeering"
       body: "networks_update_peering_request_resource"
@@ -29569,7 +30134,11 @@ service NodeGroups {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Adds specified number of nodes to the node group.
-  rpc AddNodes(AddNodesNodeGroupRequest) returns (Operation) {
+  rpc AddNodes(AddNodesNodeGroupRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/nodeGroups/{node_group}/addNodes"
       body: "node_groups_add_nodes_request_resource"
@@ -29586,7 +30155,11 @@ service NodeGroups {
   }
 
   // Deletes the specified NodeGroup resource.
-  rpc Delete(DeleteNodeGroupRequest) returns (Operation) {
+  rpc Delete(DeleteNodeGroupRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/zones/{zone}/nodeGroups/{node_group}"
     };
@@ -29594,7 +30167,11 @@ service NodeGroups {
   }
 
   // Deletes specified nodes from the node group.
-  rpc DeleteNodes(DeleteNodesNodeGroupRequest) returns (Operation) {
+  rpc DeleteNodes(DeleteNodesNodeGroupRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/nodeGroups/{node_group}/deleteNodes"
       body: "node_groups_delete_nodes_request_resource"
@@ -29619,7 +30196,11 @@ service NodeGroups {
   }
 
   // Creates a NodeGroup resource in the specified project using the data included in the request.
-  rpc Insert(InsertNodeGroupRequest) returns (Operation) {
+  rpc Insert(InsertNodeGroupRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/nodeGroups"
       body: "node_group_resource"
@@ -29644,7 +30225,11 @@ service NodeGroups {
   }
 
   // Updates the specified node group.
-  rpc Patch(PatchNodeGroupRequest) returns (Operation) {
+  rpc Patch(PatchNodeGroupRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/zones/{zone}/nodeGroups/{node_group}"
       body: "node_group_resource"
@@ -29662,7 +30247,11 @@ service NodeGroups {
   }
 
   // Updates the node template of the node group.
-  rpc SetNodeTemplate(SetNodeTemplateNodeGroupRequest) returns (Operation) {
+  rpc SetNodeTemplate(SetNodeTemplateNodeGroupRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/nodeGroups/{node_group}/setNodeTemplate"
       body: "node_groups_set_node_template_request_resource"
@@ -29699,7 +30288,11 @@ service NodeTemplates {
   }
 
   // Deletes the specified NodeTemplate resource.
-  rpc Delete(DeleteNodeTemplateRequest) returns (Operation) {
+  rpc Delete(DeleteNodeTemplateRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/nodeTemplates/{node_template}"
     };
@@ -29723,7 +30316,11 @@ service NodeTemplates {
   }
 
   // Creates a NodeTemplate resource in the specified project using the data included in the request.
-  rpc Insert(InsertNodeTemplateRequest) returns (Operation) {
+  rpc Insert(InsertNodeTemplateRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/nodeTemplates"
       body: "node_template_resource"
@@ -29813,7 +30410,11 @@ service PacketMirrorings {
   }
 
   // Deletes the specified PacketMirroring resource.
-  rpc Delete(DeletePacketMirroringRequest) returns (Operation) {
+  rpc Delete(DeletePacketMirroringRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/packetMirrorings/{packet_mirroring}"
     };
@@ -29829,7 +30430,11 @@ service PacketMirrorings {
   }
 
   // Creates a PacketMirroring resource in the specified project and region using the data included in the request.
-  rpc Insert(InsertPacketMirroringRequest) returns (Operation) {
+  rpc Insert(InsertPacketMirroringRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/packetMirrorings"
       body: "packet_mirroring_resource"
@@ -29846,7 +30451,11 @@ service PacketMirrorings {
   }
 
   // Patches the specified PacketMirroring resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.
-  rpc Patch(PatchPacketMirroringRequest) returns (Operation) {
+  rpc Patch(PatchPacketMirroringRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/regions/{region}/packetMirrorings/{packet_mirroring}"
       body: "packet_mirroring_resource"
@@ -29875,7 +30484,11 @@ service Projects {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Disable this project as a shared VPC host project.
-  rpc DisableXpnHost(DisableXpnHostProjectRequest) returns (Operation) {
+  rpc DisableXpnHost(DisableXpnHostProjectRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/disableXpnHost"
     };
@@ -29883,7 +30496,11 @@ service Projects {
   }
 
   // Disable a service resource (also known as service project) associated with this host project.
-  rpc DisableXpnResource(DisableXpnResourceProjectRequest) returns (Operation) {
+  rpc DisableXpnResource(DisableXpnResourceProjectRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/disableXpnResource"
       body: "projects_disable_xpn_resource_request_resource"
@@ -29892,7 +30509,11 @@ service Projects {
   }
 
   // Enable this project as a shared VPC host project.
-  rpc EnableXpnHost(EnableXpnHostProjectRequest) returns (Operation) {
+  rpc EnableXpnHost(EnableXpnHostProjectRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/enableXpnHost"
     };
@@ -29900,7 +30521,11 @@ service Projects {
   }
 
   // Enable service resource (a.k.a service project) for a host project, so that subnets in the host project can be used by instances in the service project.
-  rpc EnableXpnResource(EnableXpnResourceProjectRequest) returns (Operation) {
+  rpc EnableXpnResource(EnableXpnResourceProjectRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/enableXpnResource"
       body: "projects_enable_xpn_resource_request_resource"
@@ -29942,7 +30567,11 @@ service Projects {
   }
 
   // Moves a persistent disk from one zone to another.
-  rpc MoveDisk(MoveDiskProjectRequest) returns (Operation) {
+  rpc MoveDisk(MoveDiskProjectRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/moveDisk"
       body: "disk_move_request_resource"
@@ -29951,7 +30580,11 @@ service Projects {
   }
 
   // Moves an instance and its attached persistent disks from one zone to another.
-  rpc MoveInstance(MoveInstanceProjectRequest) returns (Operation) {
+  rpc MoveInstance(MoveInstanceProjectRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/moveInstance"
       body: "instance_move_request_resource"
@@ -29960,7 +30593,11 @@ service Projects {
   }
 
   // Sets metadata common to all instances within the specified project using the data included in the request.
-  rpc SetCommonInstanceMetadata(SetCommonInstanceMetadataProjectRequest) returns (Operation) {
+  rpc SetCommonInstanceMetadata(SetCommonInstanceMetadataProjectRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/setCommonInstanceMetadata"
       body: "metadata_resource"
@@ -29969,7 +30606,11 @@ service Projects {
   }
 
   // Sets the default network tier of the project. The default network tier is used when an address/forwardingRule/instance is created without specifying the network tier field.
-  rpc SetDefaultNetworkTier(SetDefaultNetworkTierProjectRequest) returns (Operation) {
+  rpc SetDefaultNetworkTier(SetDefaultNetworkTierProjectRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/setDefaultNetworkTier"
       body: "projects_set_default_network_tier_request_resource"
@@ -29978,7 +30619,11 @@ service Projects {
   }
 
   // Enables the usage export feature and sets the usage export bucket where reports are stored. If you provide an empty request body using this method, the usage export feature will be disabled.
-  rpc SetUsageExportBucket(SetUsageExportBucketProjectRequest) returns (Operation) {
+  rpc SetUsageExportBucket(SetUsageExportBucketProjectRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/setUsageExportBucket"
       body: "usage_export_location_resource"
@@ -29998,7 +30643,11 @@ service PublicAdvertisedPrefixes {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified PublicAdvertisedPrefix
-  rpc Delete(DeletePublicAdvertisedPrefixeRequest) returns (Operation) {
+  rpc Delete(DeletePublicAdvertisedPrefixeRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/publicAdvertisedPrefixes/{public_advertised_prefix}"
     };
@@ -30014,7 +30663,11 @@ service PublicAdvertisedPrefixes {
   }
 
   // Creates a PublicAdvertisedPrefix in the specified project using the parameters that are included in the request.
-  rpc Insert(InsertPublicAdvertisedPrefixeRequest) returns (Operation) {
+  rpc Insert(InsertPublicAdvertisedPrefixeRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/publicAdvertisedPrefixes"
       body: "public_advertised_prefix_resource"
@@ -30031,7 +30684,11 @@ service PublicAdvertisedPrefixes {
   }
 
   // Patches the specified Router resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.
-  rpc Patch(PatchPublicAdvertisedPrefixeRequest) returns (Operation) {
+  rpc Patch(PatchPublicAdvertisedPrefixeRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/global/publicAdvertisedPrefixes/{public_advertised_prefix}"
       body: "public_advertised_prefix_resource"
@@ -30059,7 +30716,11 @@ service PublicDelegatedPrefixes {
   }
 
   // Deletes the specified PublicDelegatedPrefix in the given region.
-  rpc Delete(DeletePublicDelegatedPrefixeRequest) returns (Operation) {
+  rpc Delete(DeletePublicDelegatedPrefixeRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/publicDelegatedPrefixes/{public_delegated_prefix}"
     };
@@ -30075,7 +30736,11 @@ service PublicDelegatedPrefixes {
   }
 
   // Creates a PublicDelegatedPrefix in the specified project in the given region using the parameters that are included in the request.
-  rpc Insert(InsertPublicDelegatedPrefixeRequest) returns (Operation) {
+  rpc Insert(InsertPublicDelegatedPrefixeRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/publicDelegatedPrefixes"
       body: "public_delegated_prefix_resource"
@@ -30092,7 +30757,11 @@ service PublicDelegatedPrefixes {
   }
 
   // Patches the specified PublicDelegatedPrefix resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.
-  rpc Patch(PatchPublicDelegatedPrefixeRequest) returns (Operation) {
+  rpc Patch(PatchPublicDelegatedPrefixeRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/regions/{region}/publicDelegatedPrefixes/{public_delegated_prefix}"
       body: "public_delegated_prefix_resource"
@@ -30112,7 +30781,11 @@ service RegionAutoscalers {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified autoscaler.
-  rpc Delete(DeleteRegionAutoscalerRequest) returns (Operation) {
+  rpc Delete(DeleteRegionAutoscalerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/autoscalers/{autoscaler}"
     };
@@ -30128,7 +30801,11 @@ service RegionAutoscalers {
   }
 
   // Creates an autoscaler in the specified project using the data included in the request.
-  rpc Insert(InsertRegionAutoscalerRequest) returns (Operation) {
+  rpc Insert(InsertRegionAutoscalerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/autoscalers"
       body: "autoscaler_resource"
@@ -30145,7 +30822,11 @@ service RegionAutoscalers {
   }
 
   // Updates an autoscaler in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
-  rpc Patch(PatchRegionAutoscalerRequest) returns (Operation) {
+  rpc Patch(PatchRegionAutoscalerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/regions/{region}/autoscalers"
       body: "autoscaler_resource"
@@ -30154,7 +30835,11 @@ service RegionAutoscalers {
   }
 
   // Updates an autoscaler in the specified project using the data included in the request.
-  rpc Update(UpdateRegionAutoscalerRequest) returns (Operation) {
+  rpc Update(UpdateRegionAutoscalerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       put: "/compute/v1/projects/{project}/regions/{region}/autoscalers"
       body: "autoscaler_resource"
@@ -30174,7 +30859,11 @@ service RegionBackendServices {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified regional BackendService resource.
-  rpc Delete(DeleteRegionBackendServiceRequest) returns (Operation) {
+  rpc Delete(DeleteRegionBackendServiceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/backendServices/{backend_service}"
     };
@@ -30199,7 +30888,11 @@ service RegionBackendServices {
   }
 
   // Creates a regional BackendService resource in the specified project using the data included in the request. For more information, see  Backend services overview.
-  rpc Insert(InsertRegionBackendServiceRequest) returns (Operation) {
+  rpc Insert(InsertRegionBackendServiceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/backendServices"
       body: "backend_service_resource"
@@ -30216,7 +30909,11 @@ service RegionBackendServices {
   }
 
   // Updates the specified regional BackendService resource with the data included in the request. For more information, see  Understanding backend services This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
-  rpc Patch(PatchRegionBackendServiceRequest) returns (Operation) {
+  rpc Patch(PatchRegionBackendServiceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/regions/{region}/backendServices/{backend_service}"
       body: "backend_service_resource"
@@ -30225,7 +30922,11 @@ service RegionBackendServices {
   }
 
   // Updates the specified regional BackendService resource with the data included in the request. For more information, see  Backend services overview.
-  rpc Update(UpdateRegionBackendServiceRequest) returns (Operation) {
+  rpc Update(UpdateRegionBackendServiceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       put: "/compute/v1/projects/{project}/regions/{region}/backendServices/{backend_service}"
       body: "backend_service_resource"
@@ -30261,7 +30962,11 @@ service RegionCommitments {
   }
 
   // Creates a commitment in the specified project using the data included in the request.
-  rpc Insert(InsertRegionCommitmentRequest) returns (Operation) {
+  rpc Insert(InsertRegionCommitmentRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/commitments"
       body: "commitment_resource"
@@ -30317,7 +31022,11 @@ service RegionDisks {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Adds existing resource policies to a regional disk. You can only add one policy which will be applied to this disk for scheduling snapshot creation.
-  rpc AddResourcePolicies(AddResourcePoliciesRegionDiskRequest) returns (Operation) {
+  rpc AddResourcePolicies(AddResourcePoliciesRegionDiskRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/disks/{disk}/addResourcePolicies"
       body: "region_disks_add_resource_policies_request_resource"
@@ -30326,7 +31035,11 @@ service RegionDisks {
   }
 
   // Creates a snapshot of this regional disk.
-  rpc CreateSnapshot(CreateSnapshotRegionDiskRequest) returns (Operation) {
+  rpc CreateSnapshot(CreateSnapshotRegionDiskRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/disks/{disk}/createSnapshot"
       body: "snapshot_resource"
@@ -30335,7 +31048,11 @@ service RegionDisks {
   }
 
   // Deletes the specified regional persistent disk. Deleting a regional disk removes all the replicas of its data permanently and is irreversible. However, deleting a disk does not delete any snapshots previously made from the disk. You must separately delete snapshots.
-  rpc Delete(DeleteRegionDiskRequest) returns (Operation) {
+  rpc Delete(DeleteRegionDiskRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/disks/{disk}"
     };
@@ -30359,7 +31076,11 @@ service RegionDisks {
   }
 
   // Creates a persistent regional disk in the specified project using the data included in the request.
-  rpc Insert(InsertRegionDiskRequest) returns (Operation) {
+  rpc Insert(InsertRegionDiskRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/disks"
       body: "disk_resource"
@@ -30376,7 +31097,11 @@ service RegionDisks {
   }
 
   // Removes resource policies from a regional disk.
-  rpc RemoveResourcePolicies(RemoveResourcePoliciesRegionDiskRequest) returns (Operation) {
+  rpc RemoveResourcePolicies(RemoveResourcePoliciesRegionDiskRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/disks/{disk}/removeResourcePolicies"
       body: "region_disks_remove_resource_policies_request_resource"
@@ -30385,7 +31110,11 @@ service RegionDisks {
   }
 
   // Resizes the specified regional persistent disk.
-  rpc Resize(ResizeRegionDiskRequest) returns (Operation) {
+  rpc Resize(ResizeRegionDiskRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/disks/{disk}/resize"
       body: "region_disks_resize_request_resource"
@@ -30403,7 +31132,11 @@ service RegionDisks {
   }
 
   // Sets the labels on the target regional disk.
-  rpc SetLabels(SetLabelsRegionDiskRequest) returns (Operation) {
+  rpc SetLabels(SetLabelsRegionDiskRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/disks/{resource}/setLabels"
       body: "region_set_labels_request_resource"
@@ -30432,7 +31165,11 @@ service RegionHealthCheckServices {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified regional HealthCheckService.
-  rpc Delete(DeleteRegionHealthCheckServiceRequest) returns (Operation) {
+  rpc Delete(DeleteRegionHealthCheckServiceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/healthCheckServices/{health_check_service}"
     };
@@ -30448,7 +31185,11 @@ service RegionHealthCheckServices {
   }
 
   // Creates a regional HealthCheckService resource in the specified project and region using the data included in the request.
-  rpc Insert(InsertRegionHealthCheckServiceRequest) returns (Operation) {
+  rpc Insert(InsertRegionHealthCheckServiceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/healthCheckServices"
       body: "health_check_service_resource"
@@ -30465,7 +31206,11 @@ service RegionHealthCheckServices {
   }
 
   // Updates the specified regional HealthCheckService resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
-  rpc Patch(PatchRegionHealthCheckServiceRequest) returns (Operation) {
+  rpc Patch(PatchRegionHealthCheckServiceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/regions/{region}/healthCheckServices/{health_check_service}"
       body: "health_check_service_resource"
@@ -30485,7 +31230,11 @@ service RegionHealthChecks {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified HealthCheck resource.
-  rpc Delete(DeleteRegionHealthCheckRequest) returns (Operation) {
+  rpc Delete(DeleteRegionHealthCheckRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/healthChecks/{health_check}"
     };
@@ -30501,7 +31250,11 @@ service RegionHealthChecks {
   }
 
   // Creates a HealthCheck resource in the specified project using the data included in the request.
-  rpc Insert(InsertRegionHealthCheckRequest) returns (Operation) {
+  rpc Insert(InsertRegionHealthCheckRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/healthChecks"
       body: "health_check_resource"
@@ -30518,7 +31271,11 @@ service RegionHealthChecks {
   }
 
   // Updates a HealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
-  rpc Patch(PatchRegionHealthCheckRequest) returns (Operation) {
+  rpc Patch(PatchRegionHealthCheckRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/regions/{region}/healthChecks/{health_check}"
       body: "health_check_resource"
@@ -30527,7 +31284,11 @@ service RegionHealthChecks {
   }
 
   // Updates a HealthCheck resource in the specified project using the data included in the request.
-  rpc Update(UpdateRegionHealthCheckRequest) returns (Operation) {
+  rpc Update(UpdateRegionHealthCheckRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       put: "/compute/v1/projects/{project}/regions/{region}/healthChecks/{health_check}"
       body: "health_check_resource"
@@ -30551,7 +31312,11 @@ service RegionInstanceGroupManagers {
   // If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
   //
   // You can specify a maximum of 1000 instances with this method per request.
-  rpc AbandonInstances(AbandonInstancesRegionInstanceGroupManagerRequest) returns (Operation) {
+  rpc AbandonInstances(AbandonInstancesRegionInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instance_group_manager}/abandonInstances"
       body: "region_instance_group_managers_abandon_instances_request_resource"
@@ -30560,7 +31325,11 @@ service RegionInstanceGroupManagers {
   }
 
   // Apply updates to selected instances the managed instance group.
-  rpc ApplyUpdatesToInstances(ApplyUpdatesToInstancesRegionInstanceGroupManagerRequest) returns (Operation) {
+  rpc ApplyUpdatesToInstances(ApplyUpdatesToInstancesRegionInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instance_group_manager}/applyUpdatesToInstances"
       body: "region_instance_group_managers_apply_updates_request_resource"
@@ -30569,7 +31338,11 @@ service RegionInstanceGroupManagers {
   }
 
   // Creates instances with per-instance configs in this regional managed instance group. Instances are created using the current instance template. The create instances operation is marked DONE if the createInstances request is successful. The underlying actions take additional time. You must separately verify the status of the creating or actions with the listmanagedinstances method.
-  rpc CreateInstances(CreateInstancesRegionInstanceGroupManagerRequest) returns (Operation) {
+  rpc CreateInstances(CreateInstancesRegionInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instance_group_manager}/createInstances"
       body: "region_instance_group_managers_create_instances_request_resource"
@@ -30578,7 +31351,11 @@ service RegionInstanceGroupManagers {
   }
 
   // Deletes the specified managed instance group and all of the instances in that group.
-  rpc Delete(DeleteRegionInstanceGroupManagerRequest) returns (Operation) {
+  rpc Delete(DeleteRegionInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instance_group_manager}"
     };
@@ -30590,7 +31367,11 @@ service RegionInstanceGroupManagers {
   // If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
   //
   // You can specify a maximum of 1000 instances with this method per request.
-  rpc DeleteInstances(DeleteInstancesRegionInstanceGroupManagerRequest) returns (Operation) {
+  rpc DeleteInstances(DeleteInstancesRegionInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instance_group_manager}/deleteInstances"
       body: "region_instance_group_managers_delete_instances_request_resource"
@@ -30599,7 +31380,11 @@ service RegionInstanceGroupManagers {
   }
 
   // Deletes selected per-instance configs for the managed instance group.
-  rpc DeletePerInstanceConfigs(DeletePerInstanceConfigsRegionInstanceGroupManagerRequest) returns (Operation) {
+  rpc DeletePerInstanceConfigs(DeletePerInstanceConfigsRegionInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instance_group_manager}/deletePerInstanceConfigs"
       body: "region_instance_group_manager_delete_instance_config_req_resource"
@@ -30618,7 +31403,11 @@ service RegionInstanceGroupManagers {
   // Creates a managed instance group using the information that you specify in the request. After the group is created, instances in the group are created using the specified instance template. This operation is marked as DONE when the group is created even if the instances in the group have not yet been created. You must separately verify the status of the individual instances with the listmanagedinstances method.
   //
   // A regional managed instance group can contain up to 2000 instances.
-  rpc Insert(InsertRegionInstanceGroupManagerRequest) returns (Operation) {
+  rpc Insert(InsertRegionInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers"
       body: "instance_group_manager_resource"
@@ -30659,7 +31448,11 @@ service RegionInstanceGroupManagers {
   }
 
   // Updates a managed instance group using the information that you specify in the request. This operation is marked as DONE when the group is patched even if the instances in the group are still in the process of being patched. You must separately verify the status of the individual instances with the listmanagedinstances method. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
-  rpc Patch(PatchRegionInstanceGroupManagerRequest) returns (Operation) {
+  rpc Patch(PatchRegionInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instance_group_manager}"
       body: "instance_group_manager_resource"
@@ -30668,7 +31461,11 @@ service RegionInstanceGroupManagers {
   }
 
   // Inserts or patches per-instance configs for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch.
-  rpc PatchPerInstanceConfigs(PatchPerInstanceConfigsRegionInstanceGroupManagerRequest) returns (Operation) {
+  rpc PatchPerInstanceConfigs(PatchPerInstanceConfigsRegionInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instance_group_manager}/patchPerInstanceConfigs"
       body: "region_instance_group_manager_patch_instance_config_req_resource"
@@ -30681,7 +31478,11 @@ service RegionInstanceGroupManagers {
   // If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
   //
   // You can specify a maximum of 1000 instances with this method per request.
-  rpc RecreateInstances(RecreateInstancesRegionInstanceGroupManagerRequest) returns (Operation) {
+  rpc RecreateInstances(RecreateInstancesRegionInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instance_group_manager}/recreateInstances"
       body: "region_instance_group_managers_recreate_request_resource"
@@ -30694,7 +31495,11 @@ service RegionInstanceGroupManagers {
   // The resize operation is marked DONE if the resize request is successful. The underlying actions take additional time. You must separately verify the status of the creating or deleting actions with the listmanagedinstances method.
   //
   // If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
-  rpc Resize(ResizeRegionInstanceGroupManagerRequest) returns (Operation) {
+  rpc Resize(ResizeRegionInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instance_group_manager}/resize"
     };
@@ -30702,7 +31507,11 @@ service RegionInstanceGroupManagers {
   }
 
   // Sets the instance template to use when creating new instances or recreating instances in this group. Existing instances are not affected.
-  rpc SetInstanceTemplate(SetInstanceTemplateRegionInstanceGroupManagerRequest) returns (Operation) {
+  rpc SetInstanceTemplate(SetInstanceTemplateRegionInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instance_group_manager}/setInstanceTemplate"
       body: "region_instance_group_managers_set_template_request_resource"
@@ -30711,7 +31520,11 @@ service RegionInstanceGroupManagers {
   }
 
   // Modifies the target pools to which all new instances in this group are assigned. Existing instances in the group are not affected.
-  rpc SetTargetPools(SetTargetPoolsRegionInstanceGroupManagerRequest) returns (Operation) {
+  rpc SetTargetPools(SetTargetPoolsRegionInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instance_group_manager}/setTargetPools"
       body: "region_instance_group_managers_set_target_pools_request_resource"
@@ -30720,7 +31533,11 @@ service RegionInstanceGroupManagers {
   }
 
   // Inserts or updates per-instance configs for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch.
-  rpc UpdatePerInstanceConfigs(UpdatePerInstanceConfigsRegionInstanceGroupManagerRequest) returns (Operation) {
+  rpc UpdatePerInstanceConfigs(UpdatePerInstanceConfigsRegionInstanceGroupManagerRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instance_group_manager}/updatePerInstanceConfigs"
       body: "region_instance_group_manager_update_instance_config_req_resource"
@@ -30765,7 +31582,11 @@ service RegionInstanceGroups {
   }
 
   // Sets the named ports for the specified regional instance group.
-  rpc SetNamedPorts(SetNamedPortsRegionInstanceGroupRequest) returns (Operation) {
+  rpc SetNamedPorts(SetNamedPortsRegionInstanceGroupRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/instanceGroups/{instance_group}/setNamedPorts"
       body: "region_instance_groups_set_named_ports_request_resource"
@@ -30785,7 +31606,11 @@ service RegionInstances {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Creates multiple instances in a given region. Count specifies the number of instances to create.
-  rpc BulkInsert(BulkInsertRegionInstanceRequest) returns (Operation) {
+  rpc BulkInsert(BulkInsertRegionInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/instances/bulkInsert"
       body: "bulk_insert_instance_resource_resource"
@@ -30805,7 +31630,11 @@ service RegionNetworkEndpointGroups {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified network endpoint group. Note that the NEG cannot be deleted if it is configured as a backend of a backend service.
-  rpc Delete(DeleteRegionNetworkEndpointGroupRequest) returns (Operation) {
+  rpc Delete(DeleteRegionNetworkEndpointGroupRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/networkEndpointGroups/{network_endpoint_group}"
     };
@@ -30821,7 +31650,11 @@ service RegionNetworkEndpointGroups {
   }
 
   // Creates a network endpoint group in the specified project using the parameters that are included in the request.
-  rpc Insert(InsertRegionNetworkEndpointGroupRequest) returns (Operation) {
+  rpc Insert(InsertRegionNetworkEndpointGroupRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/networkEndpointGroups"
       body: "network_endpoint_group_resource"
@@ -30849,7 +31682,11 @@ service RegionNotificationEndpoints {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified NotificationEndpoint in the given region
-  rpc Delete(DeleteRegionNotificationEndpointRequest) returns (Operation) {
+  rpc Delete(DeleteRegionNotificationEndpointRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/notificationEndpoints/{notification_endpoint}"
     };
@@ -30865,7 +31702,11 @@ service RegionNotificationEndpoints {
   }
 
   // Create a NotificationEndpoint in the specified project in the given region using the parameters that are included in the request.
-  rpc Insert(InsertRegionNotificationEndpointRequest) returns (Operation) {
+  rpc Insert(InsertRegionNotificationEndpointRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/notificationEndpoints"
       body: "notification_endpoint_resource"
@@ -30940,7 +31781,11 @@ service RegionSslCertificates {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified SslCertificate resource in the region.
-  rpc Delete(DeleteRegionSslCertificateRequest) returns (Operation) {
+  rpc Delete(DeleteRegionSslCertificateRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/sslCertificates/{ssl_certificate}"
     };
@@ -30956,7 +31801,11 @@ service RegionSslCertificates {
   }
 
   // Creates a SslCertificate resource in the specified project and region using the data included in the request
-  rpc Insert(InsertRegionSslCertificateRequest) returns (Operation) {
+  rpc Insert(InsertRegionSslCertificateRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/sslCertificates"
       body: "ssl_certificate_resource"
@@ -30984,7 +31833,11 @@ service RegionTargetHttpProxies {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified TargetHttpProxy resource.
-  rpc Delete(DeleteRegionTargetHttpProxyRequest) returns (Operation) {
+  rpc Delete(DeleteRegionTargetHttpProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/targetHttpProxies/{target_http_proxy}"
     };
@@ -31000,7 +31853,11 @@ service RegionTargetHttpProxies {
   }
 
   // Creates a TargetHttpProxy resource in the specified project and region using the data included in the request.
-  rpc Insert(InsertRegionTargetHttpProxyRequest) returns (Operation) {
+  rpc Insert(InsertRegionTargetHttpProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/targetHttpProxies"
       body: "target_http_proxy_resource"
@@ -31017,7 +31874,11 @@ service RegionTargetHttpProxies {
   }
 
   // Changes the URL map for TargetHttpProxy.
-  rpc SetUrlMap(SetUrlMapRegionTargetHttpProxyRequest) returns (Operation) {
+  rpc SetUrlMap(SetUrlMapRegionTargetHttpProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/targetHttpProxies/{target_http_proxy}/setUrlMap"
       body: "url_map_reference_resource"
@@ -31037,7 +31898,11 @@ service RegionTargetHttpsProxies {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified TargetHttpsProxy resource.
-  rpc Delete(DeleteRegionTargetHttpsProxyRequest) returns (Operation) {
+  rpc Delete(DeleteRegionTargetHttpsProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/targetHttpsProxies/{target_https_proxy}"
     };
@@ -31053,7 +31918,11 @@ service RegionTargetHttpsProxies {
   }
 
   // Creates a TargetHttpsProxy resource in the specified project and region using the data included in the request.
-  rpc Insert(InsertRegionTargetHttpsProxyRequest) returns (Operation) {
+  rpc Insert(InsertRegionTargetHttpsProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/targetHttpsProxies"
       body: "target_https_proxy_resource"
@@ -31070,7 +31939,11 @@ service RegionTargetHttpsProxies {
   }
 
   // Replaces SslCertificates for TargetHttpsProxy.
-  rpc SetSslCertificates(SetSslCertificatesRegionTargetHttpsProxyRequest) returns (Operation) {
+  rpc SetSslCertificates(SetSslCertificatesRegionTargetHttpsProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/targetHttpsProxies/{target_https_proxy}/setSslCertificates"
       body: "region_target_https_proxies_set_ssl_certificates_request_resource"
@@ -31079,7 +31952,11 @@ service RegionTargetHttpsProxies {
   }
 
   // Changes the URL map for TargetHttpsProxy.
-  rpc SetUrlMap(SetUrlMapRegionTargetHttpsProxyRequest) returns (Operation) {
+  rpc SetUrlMap(SetUrlMapRegionTargetHttpsProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/targetHttpsProxies/{target_https_proxy}/setUrlMap"
       body: "url_map_reference_resource"
@@ -31099,7 +31976,11 @@ service RegionUrlMaps {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified UrlMap resource.
-  rpc Delete(DeleteRegionUrlMapRequest) returns (Operation) {
+  rpc Delete(DeleteRegionUrlMapRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/urlMaps/{url_map}"
     };
@@ -31115,7 +31996,11 @@ service RegionUrlMaps {
   }
 
   // Creates a UrlMap resource in the specified project using the data included in the request.
-  rpc Insert(InsertRegionUrlMapRequest) returns (Operation) {
+  rpc Insert(InsertRegionUrlMapRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/urlMaps"
       body: "url_map_resource"
@@ -31132,7 +32017,11 @@ service RegionUrlMaps {
   }
 
   // Patches the specified UrlMap resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.
-  rpc Patch(PatchRegionUrlMapRequest) returns (Operation) {
+  rpc Patch(PatchRegionUrlMapRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/regions/{region}/urlMaps/{url_map}"
       body: "url_map_resource"
@@ -31141,7 +32030,11 @@ service RegionUrlMaps {
   }
 
   // Updates the specified UrlMap resource with the data included in the request.
-  rpc Update(UpdateRegionUrlMapRequest) returns (Operation) {
+  rpc Update(UpdateRegionUrlMapRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       put: "/compute/v1/projects/{project}/regions/{region}/urlMaps/{url_map}"
       body: "url_map_resource"
@@ -31206,7 +32099,11 @@ service Reservations {
   }
 
   // Deletes the specified reservation.
-  rpc Delete(DeleteReservationRequest) returns (Operation) {
+  rpc Delete(DeleteReservationRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/zones/{zone}/reservations/{reservation}"
     };
@@ -31230,7 +32127,11 @@ service Reservations {
   }
 
   // Creates a new reservation. For more information, read Reserving zonal resources.
-  rpc Insert(InsertReservationRequest) returns (Operation) {
+  rpc Insert(InsertReservationRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/reservations"
       body: "reservation_resource"
@@ -31247,7 +32148,11 @@ service Reservations {
   }
 
   // Resizes the reservation (applicable to standalone reservations only). For more information, read Modifying reservations.
-  rpc Resize(ResizeReservationRequest) returns (Operation) {
+  rpc Resize(ResizeReservationRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/reservations/{reservation}/resize"
       body: "reservations_resize_request_resource"
@@ -31293,7 +32198,11 @@ service ResourcePolicies {
   }
 
   // Deletes the specified resource policy.
-  rpc Delete(DeleteResourcePolicyRequest) returns (Operation) {
+  rpc Delete(DeleteResourcePolicyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/resourcePolicies/{resource_policy}"
     };
@@ -31317,7 +32226,11 @@ service ResourcePolicies {
   }
 
   // Creates a new resource policy.
-  rpc Insert(InsertResourcePolicyRequest) returns (Operation) {
+  rpc Insert(InsertResourcePolicyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/resourcePolicies"
       body: "resource_policy_resource"
@@ -31371,7 +32284,11 @@ service Routers {
   }
 
   // Deletes the specified Router resource.
-  rpc Delete(DeleteRouterRequest) returns (Operation) {
+  rpc Delete(DeleteRouterRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/routers/{router}"
     };
@@ -31403,7 +32320,11 @@ service Routers {
   }
 
   // Creates a Router resource in the specified project and region using the data included in the request.
-  rpc Insert(InsertRouterRequest) returns (Operation) {
+  rpc Insert(InsertRouterRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/routers"
       body: "router_resource"
@@ -31420,7 +32341,11 @@ service Routers {
   }
 
   // Patches the specified Router resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.
-  rpc Patch(PatchRouterRequest) returns (Operation) {
+  rpc Patch(PatchRouterRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/regions/{region}/routers/{router}"
       body: "router_resource"
@@ -31438,7 +32363,11 @@ service Routers {
   }
 
   // Updates the specified Router resource with the data included in the request. This method conforms to PUT semantics, which requests that the state of the target resource be created or replaced with the state defined by the representation enclosed in the request message payload.
-  rpc Update(UpdateRouterRequest) returns (Operation) {
+  rpc Update(UpdateRouterRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       put: "/compute/v1/projects/{project}/regions/{region}/routers/{router}"
       body: "router_resource"
@@ -31458,7 +32387,11 @@ service Routes {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified Route resource.
-  rpc Delete(DeleteRouteRequest) returns (Operation) {
+  rpc Delete(DeleteRouteRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/routes/{route}"
     };
@@ -31474,7 +32407,11 @@ service Routes {
   }
 
   // Creates a Route resource in the specified project using the data included in the request.
-  rpc Insert(InsertRouteRequest) returns (Operation) {
+  rpc Insert(InsertRouteRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/routes"
       body: "route_resource"
@@ -31502,7 +32439,11 @@ service SecurityPolicies {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Inserts a rule into a security policy.
-  rpc AddRule(AddRuleSecurityPolicyRequest) returns (Operation) {
+  rpc AddRule(AddRuleSecurityPolicyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/securityPolicies/{security_policy}/addRule"
       body: "security_policy_rule_resource"
@@ -31511,7 +32452,11 @@ service SecurityPolicies {
   }
 
   // Deletes the specified policy.
-  rpc Delete(DeleteSecurityPolicyRequest) returns (Operation) {
+  rpc Delete(DeleteSecurityPolicyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/securityPolicies/{security_policy}"
     };
@@ -31535,7 +32480,11 @@ service SecurityPolicies {
   }
 
   // Creates a new policy in the specified project using the data included in the request.
-  rpc Insert(InsertSecurityPolicyRequest) returns (Operation) {
+  rpc Insert(InsertSecurityPolicyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/securityPolicies"
       body: "security_policy_resource"
@@ -31560,7 +32509,11 @@ service SecurityPolicies {
   }
 
   // Patches the specified policy with the data included in the request. This cannot be used to be update the rules in the policy. Please use the per rule methods like addRule, patchRule, and removeRule instead.
-  rpc Patch(PatchSecurityPolicyRequest) returns (Operation) {
+  rpc Patch(PatchSecurityPolicyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/global/securityPolicies/{security_policy}"
       body: "security_policy_resource"
@@ -31569,7 +32522,11 @@ service SecurityPolicies {
   }
 
   // Patches a rule at the specified priority.
-  rpc PatchRule(PatchRuleSecurityPolicyRequest) returns (Operation) {
+  rpc PatchRule(PatchRuleSecurityPolicyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/securityPolicies/{security_policy}/patchRule"
       body: "security_policy_rule_resource"
@@ -31578,7 +32535,11 @@ service SecurityPolicies {
   }
 
   // Deletes a rule at the specified priority.
-  rpc RemoveRule(RemoveRuleSecurityPolicyRequest) returns (Operation) {
+  rpc RemoveRule(RemoveRuleSecurityPolicyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/securityPolicies/{security_policy}/removeRule"
     };
@@ -31599,7 +32560,11 @@ service Snapshots {
   // Deletes the specified Snapshot resource. Keep in mind that deleting a single snapshot might not necessarily delete all the data on that snapshot. If any data on the snapshot that is marked for deletion is needed for subsequent snapshots, the data will be moved to the next corresponding snapshot.
   //
   // For more information, see Deleting snapshots.
-  rpc Delete(DeleteSnapshotRequest) returns (Operation) {
+  rpc Delete(DeleteSnapshotRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/snapshots/{snapshot}"
     };
@@ -31640,7 +32605,11 @@ service Snapshots {
   }
 
   // Sets the labels on a snapshot. To learn more about labels, read the Labeling Resources documentation.
-  rpc SetLabels(SetLabelsSnapshotRequest) returns (Operation) {
+  rpc SetLabels(SetLabelsSnapshotRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/snapshots/{resource}/setLabels"
       body: "global_set_labels_request_resource"
@@ -31677,7 +32646,11 @@ service SslCertificates {
   }
 
   // Deletes the specified SslCertificate resource.
-  rpc Delete(DeleteSslCertificateRequest) returns (Operation) {
+  rpc Delete(DeleteSslCertificateRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/sslCertificates/{ssl_certificate}"
     };
@@ -31693,7 +32666,11 @@ service SslCertificates {
   }
 
   // Creates a SslCertificate resource in the specified project using the data included in the request.
-  rpc Insert(InsertSslCertificateRequest) returns (Operation) {
+  rpc Insert(InsertSslCertificateRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/sslCertificates"
       body: "ssl_certificate_resource"
@@ -31721,7 +32698,11 @@ service SslPolicies {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified SSL policy. The SSL policy resource can be deleted only if it is not in use by any TargetHttpsProxy or TargetSslProxy resources.
-  rpc Delete(DeleteSslPolicyRequest) returns (Operation) {
+  rpc Delete(DeleteSslPolicyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/sslPolicies/{ssl_policy}"
     };
@@ -31737,7 +32718,11 @@ service SslPolicies {
   }
 
   // Returns the specified SSL policy resource. Gets a list of available SSL policies by making a list() request.
-  rpc Insert(InsertSslPolicyRequest) returns (Operation) {
+  rpc Insert(InsertSslPolicyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/sslPolicies"
       body: "ssl_policy_resource"
@@ -31762,7 +32747,11 @@ service SslPolicies {
   }
 
   // Patches the specified SSL policy with the data included in the request.
-  rpc Patch(PatchSslPolicyRequest) returns (Operation) {
+  rpc Patch(PatchSslPolicyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/global/sslPolicies/{ssl_policy}"
       body: "ssl_policy_resource"
@@ -31790,7 +32779,11 @@ service Subnetworks {
   }
 
   // Deletes the specified subnetwork.
-  rpc Delete(DeleteSubnetworkRequest) returns (Operation) {
+  rpc Delete(DeleteSubnetworkRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}"
     };
@@ -31798,7 +32791,11 @@ service Subnetworks {
   }
 
   // Expands the IP CIDR range of the subnetwork to a specified value.
-  rpc ExpandIpCidrRange(ExpandIpCidrRangeSubnetworkRequest) returns (Operation) {
+  rpc ExpandIpCidrRange(ExpandIpCidrRangeSubnetworkRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}/expandIpCidrRange"
       body: "subnetworks_expand_ip_cidr_range_request_resource"
@@ -31823,7 +32820,11 @@ service Subnetworks {
   }
 
   // Creates a subnetwork in the specified project using the data included in the request.
-  rpc Insert(InsertSubnetworkRequest) returns (Operation) {
+  rpc Insert(InsertSubnetworkRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/subnetworks"
       body: "subnetwork_resource"
@@ -31848,7 +32849,11 @@ service Subnetworks {
   }
 
   // Patches the specified subnetwork with the data included in the request. Only certain fields can be updated with a patch request as indicated in the field descriptions. You must specify the current fingerprint of the subnetwork resource being patched.
-  rpc Patch(PatchSubnetworkRequest) returns (Operation) {
+  rpc Patch(PatchSubnetworkRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}"
       body: "subnetwork_resource"
@@ -31866,7 +32871,11 @@ service Subnetworks {
   }
 
   // Set whether VMs in this subnet can access Google services without assigning external IP addresses through Private Google Access.
-  rpc SetPrivateIpGoogleAccess(SetPrivateIpGoogleAccessSubnetworkRequest) returns (Operation) {
+  rpc SetPrivateIpGoogleAccess(SetPrivateIpGoogleAccessSubnetworkRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}/setPrivateIpGoogleAccess"
       body: "subnetworks_set_private_ip_google_access_request_resource"
@@ -31895,7 +32904,11 @@ service TargetGrpcProxies {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified TargetGrpcProxy in the given scope
-  rpc Delete(DeleteTargetGrpcProxyRequest) returns (Operation) {
+  rpc Delete(DeleteTargetGrpcProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/targetGrpcProxies/{target_grpc_proxy}"
     };
@@ -31911,7 +32924,11 @@ service TargetGrpcProxies {
   }
 
   // Creates a TargetGrpcProxy in the specified project in the given scope using the parameters that are included in the request.
-  rpc Insert(InsertTargetGrpcProxyRequest) returns (Operation) {
+  rpc Insert(InsertTargetGrpcProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/targetGrpcProxies"
       body: "target_grpc_proxy_resource"
@@ -31928,7 +32945,11 @@ service TargetGrpcProxies {
   }
 
   // Patches the specified TargetGrpcProxy resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.
-  rpc Patch(PatchTargetGrpcProxyRequest) returns (Operation) {
+  rpc Patch(PatchTargetGrpcProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/global/targetGrpcProxies/{target_grpc_proxy}"
       body: "target_grpc_proxy_resource"
@@ -31956,7 +32977,11 @@ service TargetHttpProxies {
   }
 
   // Deletes the specified TargetHttpProxy resource.
-  rpc Delete(DeleteTargetHttpProxyRequest) returns (Operation) {
+  rpc Delete(DeleteTargetHttpProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/targetHttpProxies/{target_http_proxy}"
     };
@@ -31972,7 +32997,11 @@ service TargetHttpProxies {
   }
 
   // Creates a TargetHttpProxy resource in the specified project using the data included in the request.
-  rpc Insert(InsertTargetHttpProxyRequest) returns (Operation) {
+  rpc Insert(InsertTargetHttpProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/targetHttpProxies"
       body: "target_http_proxy_resource"
@@ -31989,7 +33018,11 @@ service TargetHttpProxies {
   }
 
   // Patches the specified TargetHttpProxy resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. (== suppress_warning http-rest-shadowed ==)
-  rpc Patch(PatchTargetHttpProxyRequest) returns (Operation) {
+  rpc Patch(PatchTargetHttpProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/global/targetHttpProxies/{target_http_proxy}"
       body: "target_http_proxy_resource"
@@ -31998,7 +33031,11 @@ service TargetHttpProxies {
   }
 
   // Changes the URL map for TargetHttpProxy.
-  rpc SetUrlMap(SetUrlMapTargetHttpProxyRequest) returns (Operation) {
+  rpc SetUrlMap(SetUrlMapTargetHttpProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/targetHttpProxies/{target_http_proxy}/setUrlMap"
       body: "url_map_reference_resource"
@@ -32026,7 +33063,11 @@ service TargetHttpsProxies {
   }
 
   // Deletes the specified TargetHttpsProxy resource.
-  rpc Delete(DeleteTargetHttpsProxyRequest) returns (Operation) {
+  rpc Delete(DeleteTargetHttpsProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/targetHttpsProxies/{target_https_proxy}"
     };
@@ -32042,7 +33083,11 @@ service TargetHttpsProxies {
   }
 
   // Creates a TargetHttpsProxy resource in the specified project using the data included in the request.
-  rpc Insert(InsertTargetHttpsProxyRequest) returns (Operation) {
+  rpc Insert(InsertTargetHttpsProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/targetHttpsProxies"
       body: "target_https_proxy_resource"
@@ -32059,7 +33104,11 @@ service TargetHttpsProxies {
   }
 
   // Patches the specified TargetHttpsProxy resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. (== suppress_warning http-rest-shadowed ==)
-  rpc Patch(PatchTargetHttpsProxyRequest) returns (Operation) {
+  rpc Patch(PatchTargetHttpsProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/global/targetHttpsProxies/{target_https_proxy}"
       body: "target_https_proxy_resource"
@@ -32068,7 +33117,11 @@ service TargetHttpsProxies {
   }
 
   // Sets the QUIC override policy for TargetHttpsProxy.
-  rpc SetQuicOverride(SetQuicOverrideTargetHttpsProxyRequest) returns (Operation) {
+  rpc SetQuicOverride(SetQuicOverrideTargetHttpsProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/targetHttpsProxies/{target_https_proxy}/setQuicOverride"
       body: "target_https_proxies_set_quic_override_request_resource"
@@ -32077,7 +33130,11 @@ service TargetHttpsProxies {
   }
 
   // Replaces SslCertificates for TargetHttpsProxy.
-  rpc SetSslCertificates(SetSslCertificatesTargetHttpsProxyRequest) returns (Operation) {
+  rpc SetSslCertificates(SetSslCertificatesTargetHttpsProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/targetHttpsProxies/{target_https_proxy}/setSslCertificates"
       body: "target_https_proxies_set_ssl_certificates_request_resource"
@@ -32086,7 +33143,11 @@ service TargetHttpsProxies {
   }
 
   // Sets the SSL policy for TargetHttpsProxy. The SSL policy specifies the server-side support for SSL features. This affects connections between clients and the HTTPS proxy load balancer. They do not affect the connection between the load balancer and the backends.
-  rpc SetSslPolicy(SetSslPolicyTargetHttpsProxyRequest) returns (Operation) {
+  rpc SetSslPolicy(SetSslPolicyTargetHttpsProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/targetHttpsProxies/{target_https_proxy}/setSslPolicy"
       body: "ssl_policy_reference_resource"
@@ -32095,7 +33156,11 @@ service TargetHttpsProxies {
   }
 
   // Changes the URL map for TargetHttpsProxy.
-  rpc SetUrlMap(SetUrlMapTargetHttpsProxyRequest) returns (Operation) {
+  rpc SetUrlMap(SetUrlMapTargetHttpsProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/targetHttpsProxies/{target_https_proxy}/setUrlMap"
       body: "url_map_reference_resource"
@@ -32123,7 +33188,11 @@ service TargetInstances {
   }
 
   // Deletes the specified TargetInstance resource.
-  rpc Delete(DeleteTargetInstanceRequest) returns (Operation) {
+  rpc Delete(DeleteTargetInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/zones/{zone}/targetInstances/{target_instance}"
     };
@@ -32139,7 +33208,11 @@ service TargetInstances {
   }
 
   // Creates a TargetInstance resource in the specified project and zone using the data included in the request.
-  rpc Insert(InsertTargetInstanceRequest) returns (Operation) {
+  rpc Insert(InsertTargetInstanceRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/zones/{zone}/targetInstances"
       body: "target_instance_resource"
@@ -32167,7 +33240,11 @@ service TargetPools {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Adds health check URLs to a target pool.
-  rpc AddHealthCheck(AddHealthCheckTargetPoolRequest) returns (Operation) {
+  rpc AddHealthCheck(AddHealthCheckTargetPoolRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/targetPools/{target_pool}/addHealthCheck"
       body: "target_pools_add_health_check_request_resource"
@@ -32176,7 +33253,11 @@ service TargetPools {
   }
 
   // Adds an instance to a target pool.
-  rpc AddInstance(AddInstanceTargetPoolRequest) returns (Operation) {
+  rpc AddInstance(AddInstanceTargetPoolRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/targetPools/{target_pool}/addInstance"
       body: "target_pools_add_instance_request_resource"
@@ -32193,7 +33274,11 @@ service TargetPools {
   }
 
   // Deletes the specified target pool.
-  rpc Delete(DeleteTargetPoolRequest) returns (Operation) {
+  rpc Delete(DeleteTargetPoolRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/targetPools/{target_pool}"
     };
@@ -32218,7 +33303,11 @@ service TargetPools {
   }
 
   // Creates a target pool in the specified project and region using the data included in the request.
-  rpc Insert(InsertTargetPoolRequest) returns (Operation) {
+  rpc Insert(InsertTargetPoolRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/targetPools"
       body: "target_pool_resource"
@@ -32235,7 +33324,11 @@ service TargetPools {
   }
 
   // Removes health check URL from a target pool.
-  rpc RemoveHealthCheck(RemoveHealthCheckTargetPoolRequest) returns (Operation) {
+  rpc RemoveHealthCheck(RemoveHealthCheckTargetPoolRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/targetPools/{target_pool}/removeHealthCheck"
       body: "target_pools_remove_health_check_request_resource"
@@ -32244,7 +33337,11 @@ service TargetPools {
   }
 
   // Removes instance URL from a target pool.
-  rpc RemoveInstance(RemoveInstanceTargetPoolRequest) returns (Operation) {
+  rpc RemoveInstance(RemoveInstanceTargetPoolRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/targetPools/{target_pool}/removeInstance"
       body: "target_pools_remove_instance_request_resource"
@@ -32253,7 +33350,11 @@ service TargetPools {
   }
 
   // Changes a backup target pool's configurations.
-  rpc SetBackup(SetBackupTargetPoolRequest) returns (Operation) {
+  rpc SetBackup(SetBackupTargetPoolRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/targetPools/{target_pool}/setBackup"
       body: "target_reference_resource"
@@ -32273,7 +33374,11 @@ service TargetSslProxies {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified TargetSslProxy resource.
-  rpc Delete(DeleteTargetSslProxyRequest) returns (Operation) {
+  rpc Delete(DeleteTargetSslProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/targetSslProxies/{target_ssl_proxy}"
     };
@@ -32289,7 +33394,11 @@ service TargetSslProxies {
   }
 
   // Creates a TargetSslProxy resource in the specified project using the data included in the request.
-  rpc Insert(InsertTargetSslProxyRequest) returns (Operation) {
+  rpc Insert(InsertTargetSslProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/targetSslProxies"
       body: "target_ssl_proxy_resource"
@@ -32306,7 +33415,11 @@ service TargetSslProxies {
   }
 
   // Changes the BackendService for TargetSslProxy.
-  rpc SetBackendService(SetBackendServiceTargetSslProxyRequest) returns (Operation) {
+  rpc SetBackendService(SetBackendServiceTargetSslProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/targetSslProxies/{target_ssl_proxy}/setBackendService"
       body: "target_ssl_proxies_set_backend_service_request_resource"
@@ -32315,7 +33428,11 @@ service TargetSslProxies {
   }
 
   // Changes the ProxyHeaderType for TargetSslProxy.
-  rpc SetProxyHeader(SetProxyHeaderTargetSslProxyRequest) returns (Operation) {
+  rpc SetProxyHeader(SetProxyHeaderTargetSslProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/targetSslProxies/{target_ssl_proxy}/setProxyHeader"
       body: "target_ssl_proxies_set_proxy_header_request_resource"
@@ -32324,7 +33441,11 @@ service TargetSslProxies {
   }
 
   // Changes SslCertificates for TargetSslProxy.
-  rpc SetSslCertificates(SetSslCertificatesTargetSslProxyRequest) returns (Operation) {
+  rpc SetSslCertificates(SetSslCertificatesTargetSslProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/targetSslProxies/{target_ssl_proxy}/setSslCertificates"
       body: "target_ssl_proxies_set_ssl_certificates_request_resource"
@@ -32333,7 +33454,11 @@ service TargetSslProxies {
   }
 
   // Sets the SSL policy for TargetSslProxy. The SSL policy specifies the server-side support for SSL features. This affects connections between clients and the SSL proxy load balancer. They do not affect the connection between the load balancer and the backends.
-  rpc SetSslPolicy(SetSslPolicyTargetSslProxyRequest) returns (Operation) {
+  rpc SetSslPolicy(SetSslPolicyTargetSslProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/targetSslProxies/{target_ssl_proxy}/setSslPolicy"
       body: "ssl_policy_reference_resource"
@@ -32353,7 +33478,11 @@ service TargetTcpProxies {
     "https://www.googleapis.com/auth/cloud-platform";
 
   // Deletes the specified TargetTcpProxy resource.
-  rpc Delete(DeleteTargetTcpProxyRequest) returns (Operation) {
+  rpc Delete(DeleteTargetTcpProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/targetTcpProxies/{target_tcp_proxy}"
     };
@@ -32369,7 +33498,11 @@ service TargetTcpProxies {
   }
 
   // Creates a TargetTcpProxy resource in the specified project using the data included in the request.
-  rpc Insert(InsertTargetTcpProxyRequest) returns (Operation) {
+  rpc Insert(InsertTargetTcpProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/targetTcpProxies"
       body: "target_tcp_proxy_resource"
@@ -32386,7 +33519,11 @@ service TargetTcpProxies {
   }
 
   // Changes the BackendService for TargetTcpProxy.
-  rpc SetBackendService(SetBackendServiceTargetTcpProxyRequest) returns (Operation) {
+  rpc SetBackendService(SetBackendServiceTargetTcpProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/targetTcpProxies/{target_tcp_proxy}/setBackendService"
       body: "target_tcp_proxies_set_backend_service_request_resource"
@@ -32395,7 +33532,11 @@ service TargetTcpProxies {
   }
 
   // Changes the ProxyHeaderType for TargetTcpProxy.
-  rpc SetProxyHeader(SetProxyHeaderTargetTcpProxyRequest) returns (Operation) {
+  rpc SetProxyHeader(SetProxyHeaderTargetTcpProxyRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/targetTcpProxies/{target_tcp_proxy}/setProxyHeader"
       body: "target_tcp_proxies_set_proxy_header_request_resource"
@@ -32423,7 +33564,11 @@ service TargetVpnGateways {
   }
 
   // Deletes the specified target VPN gateway.
-  rpc Delete(DeleteTargetVpnGatewayRequest) returns (Operation) {
+  rpc Delete(DeleteTargetVpnGatewayRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/targetVpnGateways/{target_vpn_gateway}"
     };
@@ -32439,7 +33584,11 @@ service TargetVpnGateways {
   }
 
   // Creates a target VPN gateway in the specified project and region using the data included in the request.
-  rpc Insert(InsertTargetVpnGatewayRequest) returns (Operation) {
+  rpc Insert(InsertTargetVpnGatewayRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/targetVpnGateways"
       body: "target_vpn_gateway_resource"
@@ -32475,7 +33624,11 @@ service UrlMaps {
   }
 
   // Deletes the specified UrlMap resource.
-  rpc Delete(DeleteUrlMapRequest) returns (Operation) {
+  rpc Delete(DeleteUrlMapRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/global/urlMaps/{url_map}"
     };
@@ -32491,7 +33644,11 @@ service UrlMaps {
   }
 
   // Creates a UrlMap resource in the specified project using the data included in the request.
-  rpc Insert(InsertUrlMapRequest) returns (Operation) {
+  rpc Insert(InsertUrlMapRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/urlMaps"
       body: "url_map_resource"
@@ -32502,7 +33659,11 @@ service UrlMaps {
   // Initiates a cache invalidation operation, invalidating the specified path, scoped to the specified UrlMap.
   //
   // For more information, see [Invalidating cached content](/cdn/docs/invalidating-cached-content).
-  rpc InvalidateCache(InvalidateCacheUrlMapRequest) returns (Operation) {
+  rpc InvalidateCache(InvalidateCacheUrlMapRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/global/urlMaps/{url_map}/invalidateCache"
       body: "cache_invalidation_rule_resource"
@@ -32519,7 +33680,11 @@ service UrlMaps {
   }
 
   // Patches the specified UrlMap resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
-  rpc Patch(PatchUrlMapRequest) returns (Operation) {
+  rpc Patch(PatchUrlMapRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       patch: "/compute/v1/projects/{project}/global/urlMaps/{url_map}"
       body: "url_map_resource"
@@ -32528,7 +33693,11 @@ service UrlMaps {
   }
 
   // Updates the specified UrlMap resource with the data included in the request.
-  rpc Update(UpdateUrlMapRequest) returns (Operation) {
+  rpc Update(UpdateUrlMapRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       put: "/compute/v1/projects/{project}/global/urlMaps/{url_map}"
       body: "url_map_resource"
@@ -32565,7 +33734,11 @@ service VpnGateways {
   }
 
   // Deletes the specified VPN gateway.
-  rpc Delete(DeleteVpnGatewayRequest) returns (Operation) {
+  rpc Delete(DeleteVpnGatewayRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/vpnGateways/{vpn_gateway}"
     };
@@ -32589,7 +33762,11 @@ service VpnGateways {
   }
 
   // Creates a VPN gateway in the specified project and region using the data included in the request.
-  rpc Insert(InsertVpnGatewayRequest) returns (Operation) {
+  rpc Insert(InsertVpnGatewayRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/vpnGateways"
       body: "vpn_gateway_resource"
@@ -32606,7 +33783,11 @@ service VpnGateways {
   }
 
   // Sets the labels on a VpnGateway. To learn more about labels, read the Labeling Resources documentation.
-  rpc SetLabels(SetLabelsVpnGatewayRequest) returns (Operation) {
+  rpc SetLabels(SetLabelsVpnGatewayRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/vpnGateways/{resource}/setLabels"
       body: "region_set_labels_request_resource"
@@ -32643,7 +33824,11 @@ service VpnTunnels {
   }
 
   // Deletes the specified VpnTunnel resource.
-  rpc Delete(DeleteVpnTunnelRequest) returns (Operation) {
+  rpc Delete(DeleteVpnTunnelRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       delete: "/compute/v1/projects/{project}/regions/{region}/vpnTunnels/{vpn_tunnel}"
     };
@@ -32659,7 +33844,11 @@ service VpnTunnels {
   }
 
   // Creates a VpnTunnel resource in the specified project and region using the data included in the request.
-  rpc Insert(InsertVpnTunnelRequest) returns (Operation) {
+  rpc Insert(InsertVpnTunnelRequest) returns (google.longrunning.Operation) {
+    option (google.longrunning.operation_info) = {
+      response_type: "Operation"
+      metadata_type: "Operation"
+    };
     option (google.api.http) = {
       post: "/compute/v1/projects/{project}/regions/{region}/vpnTunnels"
       body: "vpn_tunnel_resource"
