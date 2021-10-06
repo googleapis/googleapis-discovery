@@ -4,8 +4,8 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
     name = "com_google_googleapis",
-    strip_prefix = "googleapis-2e6b987a6f6e65c33ddefe0f2278dbbd38b46a91",
-    urls = ["https://github.com/googleapis/googleapis/archive/2e6b987a6f6e65c33ddefe0f2278dbbd38b46a91.zip"],
+    strip_prefix = "googleapis-ba30d8097582039ac4cc4e21b4e4baa426423075",
+    urls = ["https://github.com/googleapis/googleapis/archive/ba30d8097582039ac4cc4e21b4e4baa426423075.zip"],
 )
 
 ##############################################################################
@@ -88,10 +88,10 @@ http_archive(
 # bazel-gazelle (support Golang under bazel)
 http_archive(
     name = "bazel_gazelle",
-    sha256 = "b85f48fa105c4403326e9525ad2b2cc437babaa6e15a3fc0b1dbab0ab064bc7c",
+    sha256 = "62ca106be173579c0a167deb23358fdfe71ffa1e4cfdddf5582af26520f1c66f",
     urls = [
-        "https://storage.googleapis.com/bazel-mirror/github.com/bazelbuild/bazel-gazelle/releases/download/v0.22.2/bazel-gazelle-v0.22.2.tar.gz",
-        "https://github.com/bazelbuild/bazel-gazelle/releases/download/v0.22.2/bazel-gazelle-v0.22.2.tar.gz",
+        "https://mirror.bazel.build/github.com/bazelbuild/bazel-gazelle/releases/download/v0.23.0/bazel-gazelle-v0.23.0.tar.gz",
+        "https://github.com/bazelbuild/bazel-gazelle/releases/download/v0.23.0/bazel-gazelle-v0.23.0.tar.gz",
     ],
 )
 
@@ -106,8 +106,8 @@ go_repository(
     name = "org_golang_google_genproto",
     build_file_proto_mode = "disable_global",
     importpath = "google.golang.org/genproto",
-    sum = "h1:hcskBH5qZCOa7WpTUFUFvoebnSFZBYpjykLtjIp9DVk=",
-    version = "v0.0.0-20210303154014-9728d6b83eeb",
+    sum = "h1:4xoALQmXxqVdDdLimpPyPeDdsJzo+nFTJw9euAMpqgM=",
+    version = "v0.0.0-20210729151513-df9385d47c1b",
 )
 
 go_rules_dependencies()
@@ -116,7 +116,7 @@ go_register_toolchains()
 
 gazelle_dependencies()
 
-_rules_gapic_version = "0.5.5"
+_rules_gapic_version = "0.6.0"
 
 http_archive(
     name = "rules_gapic",
@@ -165,7 +165,7 @@ apple_support_dependencies()
 ##############################################################################
 # Java
 ##############################################################################
-_gax_java_version = "1.65.1"
+_gax_java_version = "2.3.0"
 
 http_archive(
     name = "com_google_api_gax_java",
@@ -190,7 +190,7 @@ grpc_java_repositories()
 
 # Java microgenerator.
 # Must go AFTER java-gax, since both java gax and gapic-generator are written in java and may conflict.
-_gapic_generator_java_version = "1.0.15"
+_gapic_generator_java_version = "2.1.0"
 
 http_archive(
     name = "gapic_generator_java",
@@ -242,7 +242,7 @@ gapic_generator_register_toolchains()
 # Go
 ##############################################################################
 
-_gapic_generator_go_version = "0.21.2"
+_gapic_generator_go_version = "0.23.0"
 
 http_archive(
     name = "com_googleapis_gapic_generator_go",
@@ -258,9 +258,9 @@ com_googleapis_gapic_generator_go_repositories()
 # TypeScript
 ##############################################################################
 
-_gapic_generator_typescript_version = "1.5.0"
+_gapic_generator_typescript_version = "2.4.0"
 
-_gapic_generator_typescript_sha256 = "17e9387f3d6da8e5382b4e138ccc401137d2938b394040984ef2ca11ff9f8aea"
+_gapic_generator_typescript_sha256 = "375ec3971f51a30f860fe3296c8b9088a095c2f4af720e862d012fd2e4a3dcca"
 
 ### TypeScript generator
 http_archive(
@@ -301,7 +301,7 @@ php(
 
 php_gapic_repositories()
 
-# PHP micro-generator (beta)
+# PHP micro-generator
 _gapic_generator_php_version = "1.0.5"
 
 http_archive(
@@ -371,8 +371,8 @@ gapic_generator_ruby_repositories()
 
 http_archive(
     name = "com_google_disco_to_proto3_converter",
-    strip_prefix = "disco-to-proto3-converter-4b0956884b1aa9b367cf41488b622dc12eb16652",
-    urls = ["https://github.com/googleapis/disco-to-proto3-converter/archive/4b0956884b1aa9b367cf41488b622dc12eb16652.zip"],
+    strip_prefix = "disco-to-proto3-converter-bbcb38b24c32c282eac720a48158e2d82f136e90",
+    urls = ["https://github.com/googleapis/disco-to-proto3-converter/archive/bbcb38b24c32c282eac720a48158e2d82f136e90.zip"],
 )
 
 load("@com_google_disco_to_proto3_converter//:repository_rules.bzl", "com_google_disco_to_proto3_converter_properties")
