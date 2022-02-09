@@ -1,3 +1,5 @@
+**This repository is obsolete and is no longer maintained. The [googleapis/googleapis](https://github.com/googleapis/googleapis) repository should be used instead, see [compute](https://github.com/googleapis/googleapis/tree/master/google/cloud/compute) protos for an exmple.**
+
 ## Google APIs
 
 This repository contains the periodically updated snapshot of 
